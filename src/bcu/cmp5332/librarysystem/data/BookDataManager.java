@@ -10,9 +10,9 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class BookDataManager implements DataManager {
-    
+
     private final String RESOURCE = "./resources/data/books.txt";
-    
+
     @Override
     public void loadData(Library library) throws IOException, LibraryException {
         try (Scanner sc = new Scanner(new File(RESOURCE))) {
@@ -35,7 +35,7 @@ public class BookDataManager implements DataManager {
             }
         }
     }
-    
+
     @Override
     public void storeData(Library library) throws IOException {
         try (PrintWriter out = new PrintWriter(new FileWriter(RESOURCE))) {
@@ -49,4 +49,3 @@ public class BookDataManager implements DataManager {
         }
     }
 }
- 

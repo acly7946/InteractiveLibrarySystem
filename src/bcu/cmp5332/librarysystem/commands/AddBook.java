@@ -16,7 +16,7 @@ public class AddBook implements  Command {
         this.author = author;
         this.publicationYear = publicationYear;
     }
-    
+
     @Override
     public void execute(Library library, LocalDate currentDate) throws LibraryException {
         int maxId = 0;
@@ -29,4 +29,3 @@ public class AddBook implements  Command {
         System.out.println("Book #" + book.getId() + " added.");
     }
 }
- 

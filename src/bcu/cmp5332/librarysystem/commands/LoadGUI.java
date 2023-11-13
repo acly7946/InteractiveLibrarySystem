@@ -11,6 +11,5 @@ public class LoadGUI implements Command {
     public void execute(Library library, LocalDate currentDate) throws LibraryException {
         new MainWindow(library);
     }
-    
+
 }
- 

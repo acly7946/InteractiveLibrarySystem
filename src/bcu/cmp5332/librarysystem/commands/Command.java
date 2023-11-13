@@ -21,8 +21,7 @@ public interface Command {
             + "\thelp                            prints this help message\n"
             + "\texit                            exits the program";
 
-    
+
     public void execute(Library library, LocalDate currentDate) throws LibraryException;
-    
+
 }
- 

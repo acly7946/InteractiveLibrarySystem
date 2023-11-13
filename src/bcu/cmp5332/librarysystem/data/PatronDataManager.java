@@ -7,7 +7,7 @@ import java.io.IOException;
 public class PatronDataManager implements DataManager {
 
     private final String RESOURCE = "./resources/data/patrons.txt";
-    
+
     @Override
     public void loadData(Library library) throws IOException, LibraryException {
         // TODO: implementation here
@@ -18,4 +18,3 @@ public class PatronDataManager implements DataManager {
         // TODO: implementation here
     }
 }
- 

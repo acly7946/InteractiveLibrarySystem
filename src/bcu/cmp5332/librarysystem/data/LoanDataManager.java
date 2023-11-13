@@ -5,7 +5,7 @@ import bcu.cmp5332.librarysystem.model.Library;
 import java.io.IOException;
 
 public class LoanDataManager implements DataManager {
-    
+
     public final String RESOURCE = "./resources/data/loans.txt";
 
     @Override
@@ -17,6 +17,5 @@ public class LoanDataManager implements DataManager {
     public void storeData(Library library) throws IOException {
         // TODO: implementation here
     }
-    
+
 }
- 
