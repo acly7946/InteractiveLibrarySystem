@@ -3,6 +3,7 @@ package bcu.cmp5332.librarysystem.model;
 import bcu.cmp5332.librarysystem.main.LibraryException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Patron {
@@ -34,6 +35,17 @@ public class Patron {
     public String getDetailsShort() {
         return "Patron #" + id + " - " + name;
     }
+
+	public String getDetailsLong() {
+		return "Patron #" + id +
+				"\n Name: " + name +
+				"\n Phone: " + phone +
+				"\n Books on loan: " + getBooks();
+	}
+
+	public List<Book> getBooks() {
+		return Collections.unmodifiableList(books);
+	}
 
     public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
         // TODO: implementation here
