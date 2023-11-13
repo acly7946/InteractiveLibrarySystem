@@ -56,11 +56,10 @@ public class Book {
     }
 
     public String getDetailsLong() {
-		String details = "Book #" + id +
-						"\n Title: " + title +
-						"\n Author: " + author +
-						"\n Publication Year: " +publicationYear;
-        return details;
+		return "Book #" + id +
+				"\n Title: " + title +
+				"\n Author: " + author +
+				"\n Publication Year: " +publicationYear;
     }
 
     public boolean isOnLoan() {
