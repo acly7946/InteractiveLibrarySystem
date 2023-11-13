@@ -5,7 +5,7 @@ import bcu.cmp5332.librarysystem.model.Library;
 import bcu.cmp5332.librarysystem.main.LibraryException;
 import java.time.LocalDate;
 
-public class AddBook implements  Command {
+public class AddBook implements Command {
 
     private final String title;
     private final String author;
