@@ -16,7 +16,7 @@ public class ShowBook implements Command {
 	}
 
     @Override
-    public void execute(Library library, LocalDate localDate) throws LibraryException {
+    public void execute(Library library, LocalDate currentDate) throws LibraryException {
 		Book book = library.getBookByID(bookId);
 
 		System.out.println(book.getDetailsLong());
