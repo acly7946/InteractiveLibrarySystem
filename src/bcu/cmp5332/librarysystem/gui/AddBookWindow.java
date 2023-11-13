@@ -41,7 +41,7 @@ public class AddBookWindow extends JFrame implements ActionListener {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
 
-        } 
+        }
 
         setTitle("Add a New Book");
 

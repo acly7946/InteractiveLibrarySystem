@@ -4,7 +4,7 @@ import bcu.cmp5332.librarysystem.main.LibraryException;
 import java.util.*;
 
 public class Library {
-    
+
     private final int loanPeriod = 7;
     private final Map<Integer, Patron> patrons = new TreeMap<>();
     private final Map<Integer, Book> books = new TreeMap<>();
@@ -41,4 +41,3 @@ public class Library {
         // TODO: implementation here
     }
 }
- 
