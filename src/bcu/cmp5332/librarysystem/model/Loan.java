@@ -10,12 +10,30 @@ public class Loan {
     private LocalDate dueDate;
 
     public Loan(Patron patron, Book book, LocalDate startDate, LocalDate dueDate) {
-        // TODO: implementation here
+		this.patron = patron;
+		this.book = book;
+		this.startDate = startDate;
+		this.dueDate = dueDate;
     }
 
     // TODO: implementation of Getter and Setter methods
 	public LocalDate getDueDate()
 	{
 		return dueDate;
+	}
+
+	public LocalDate getStartDate()
+	{
+		return startDate;
+	}
+
+	public Book getBook()
+	{
+		return book;
+	}
+
+	public Patron getPatron()
+	{
+		return patron;
 	}
 }
