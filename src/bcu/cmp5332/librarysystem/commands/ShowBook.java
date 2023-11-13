@@ -6,7 +6,6 @@ import bcu.cmp5332.librarysystem.model.Patron;
 import bcu.cmp5332.librarysystem.main.LibraryException;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class ShowBook implements Command {
 
