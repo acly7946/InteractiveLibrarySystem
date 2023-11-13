@@ -9,15 +9,15 @@ import java.time.LocalDate;
 
 public class ShowBook implements Command {
 
-	private final int bookID;
+	private final int bookId;
 
-	public ShowBook(int bookID) {
-		this.bookID = bookID;
+	public ShowBook(int bookId) {
+		this.bookId = bookId;
 	}
 
     @Override
     public void execute(Library library, LocalDate localDate) throws LibraryException {
-		Book book = library.getBookByID(bookID);
+		Book book = library.getBookByID(bookId);
 
 		System.out.println(book.getDetailsLong());
 		if(book.isOnLoan()) {
