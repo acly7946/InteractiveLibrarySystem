@@ -19,6 +19,10 @@ public class Patron {
 		this.phone = phone;
 	}
 
+	public int getID(){
+		return id;
+	}
+
     public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
         // TODO: implementation here
     }
