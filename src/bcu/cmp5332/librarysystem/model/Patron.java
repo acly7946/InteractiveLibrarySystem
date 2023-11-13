@@ -23,6 +23,10 @@ public class Patron {
 		return id;
 	}
 
+    public String getDetailsShort() {
+        return "Patron #" + id + " - " + name;
+    }
+
     public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
         // TODO: implementation here
     }
