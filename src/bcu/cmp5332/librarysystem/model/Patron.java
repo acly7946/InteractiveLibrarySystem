@@ -12,7 +12,12 @@ public class Patron {
     private String phone;
     private final List<Book> books = new ArrayList<>();
 
-    // TODO: implement constructor here
+	public Patron(int id, String name, String phone)
+	{
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+	}
 
     public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
         // TODO: implementation here
