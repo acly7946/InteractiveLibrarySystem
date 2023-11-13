@@ -23,6 +23,14 @@ public class Patron {
 		return id;
 	}
 
+	public String getName(){
+		return name;
+	}
+
+	public String getPhone(){
+		return phone;
+	}
+
     public String getDetailsShort() {
         return "Patron #" + id + " - " + name;
     }
