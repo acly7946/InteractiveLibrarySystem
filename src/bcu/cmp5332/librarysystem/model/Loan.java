@@ -14,4 +14,8 @@ public class Loan {
     }
 
     // TODO: implementation of Getter and Setter methods
+	public LocalDate getDueDate()
+	{
+		return dueDate;
+	}
 }

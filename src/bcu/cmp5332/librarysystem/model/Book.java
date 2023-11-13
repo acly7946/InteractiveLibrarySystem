@@ -70,8 +70,7 @@ public class Book {
     }
 
     public LocalDate getDueDate() {
-        // TODO: implementation here
-        return null;
+		return loan.getDueDate();
     }
 
     public void setDueDate(LocalDate dueDate) throws LibraryException {
