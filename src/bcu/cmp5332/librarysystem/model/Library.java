@@ -45,6 +45,9 @@ public class Library {
     }
 
     public void addPatron(Patron patron) {
-        // TODO: implementation here
+        if (patrons.containsKey(patron.getID())) {
+            throw new IllegalArgumentException("Duplicate book ID.");
+        }
+        patrons.put(patron.getID(), patron);
     }
 }
