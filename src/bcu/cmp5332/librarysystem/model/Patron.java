@@ -40,7 +40,7 @@ public class Patron {
 		String books = "";
 
 		for(Book book : this.books){
-			books += "\n " + book.getDetailsShort();
+			books += "\n  " + book.getDetailsShort();
 		}
 
 		return "Patron #" + id +
