@@ -20,8 +20,8 @@ public class BorrowBook implements Command {
     @Override
     public void execute(Library library, LocalDate currentDate) throws LibraryException {
 		LocalDate dueDate = currentDate.plusDays(library.getLoanPeriod());
-		Book book = library.getBookByID(bookId);
 		Patron patron = library.getPatronByID(patronId);
+		Book book = library.getBookByID(bookId);
 
 		patron.borrowBook(book, dueDate);
     }
