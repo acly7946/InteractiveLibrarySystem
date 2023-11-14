@@ -67,7 +67,11 @@ public class Patron {
     }
 
     public void returnBook(Book book) throws LibraryException {
-        // TODO: implementation here
+		if(!(this.getBooks().contains(book))) {
+			throw new LibraryException("Book is not on loan to this patron");
+		}
+		this.books.remove(book);
+		book.returnToLibrary();
     }
 
     public void addBook(Book book) {
