@@ -6,9 +6,9 @@ import bcu.cmp5332.librarysystem.model.Patron;
 
 import java.time.LocalDate;
 
-public class Borrow implements Command {
+public class BorrowBook implements Command {
 
-    public Borrow() {
+    public BorrowBook() {
     }
 
     @Override
