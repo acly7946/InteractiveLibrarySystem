@@ -37,10 +37,16 @@ public class Patron {
     }
 
 	public String getDetailsLong() {
+		String books = "";
+
+		for(Book book : this.books){
+			books += "\n " + book.getDetailsShort();
+		}
+
 		return "Patron #" + id +
 				"\n Name: " + name +
 				"\n Phone: " + phone +
-				"\n Books on loan: " + getBooks();
+				"\n Books on loan: " + books;
 	}
 
 	public List<Book> getBooks() {
@@ -50,6 +56,7 @@ public class Patron {
     public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
 		Loan loan = new Loan(this, book, LocalDate.now(), dueDate);
 		book.setLoan(loan);
+		this.addBook(book);
     }
 
     public void renewBook(Book book, LocalDate dueDate) throws LibraryException {
@@ -61,6 +68,6 @@ public class Patron {
     }
 
     public void addBook(Book book) {
-        // TODO: implementation here
+		this.books.add(book);
     }
 }
