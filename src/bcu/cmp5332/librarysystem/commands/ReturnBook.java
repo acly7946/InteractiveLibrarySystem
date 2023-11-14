@@ -23,5 +23,6 @@ public class ReturnBook implements Command {
 		Book book = library.getBookByID(bookId);
 
 		patron.returnBook(book);
+		System.out.println("Book " + bookId + " returned by " + patronId);
     }
 }
