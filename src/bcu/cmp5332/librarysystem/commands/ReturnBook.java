@@ -19,5 +19,9 @@ public class ReturnBook implements Command {
 
     @Override
     public void execute(Library library, LocalDate currentDate) throws LibraryException {
+		Patron patron = library.getPatronByID(patronId);
+		Book book = library.getBookByID(bookId);
+
+		patron.returnBook(book);
     }
 }
