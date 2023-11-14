@@ -1,6 +1,7 @@
 package bcu.cmp5332.librarysystem.main;
 
 import bcu.cmp5332.librarysystem.commands.LoadGUI;
+import bcu.cmp5332.librarysystem.commands.RenewBook;
 import bcu.cmp5332.librarysystem.commands.ShowBook;
 import bcu.cmp5332.librarysystem.commands.ShowPatron;
 import bcu.cmp5332.librarysystem.commands.ListBooks;
@@ -66,7 +67,7 @@ public class CommandParser {
                 if (cmd.equals("borrow")) {
 					return new BorrowBook(patronID, bookID);
                 } else if (cmd.equals("renew")) {
-
+					return new RenewBook(patronID, bookID);
                 } else if (cmd.equals("return")) {
 
                 }
