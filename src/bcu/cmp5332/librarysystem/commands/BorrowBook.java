@@ -8,10 +8,15 @@ import java.time.LocalDate;
 
 public class BorrowBook implements Command {
 
-    public BorrowBook() {
+	private final int patronId;
+	private final int bookId;
+
+    public BorrowBook(int patronId, int bookId) {
+		this.patronId = patronId;
+		this.bookId = bookId;
     }
 
     @Override
-    public void execute() throws LibraryException {
+    public void execute(Library library, LocalDate currenDate) throws LibraryException {
     }
 }
