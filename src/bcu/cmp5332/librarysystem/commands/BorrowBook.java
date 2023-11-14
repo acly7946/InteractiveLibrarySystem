@@ -1,6 +1,7 @@
 package bcu.cmp5332.librarysystem.commands;
 
 import bcu.cmp5332.librarysystem.main.LibraryException;
+import bcu.cmp5332.librarysystem.model.Book;
 import bcu.cmp5332.librarysystem.model.Library;
 import bcu.cmp5332.librarysystem.model.Patron;
 
@@ -18,6 +19,10 @@ public class BorrowBook implements Command {
 
     @Override
     public void execute(Library library, LocalDate currentDate) throws LibraryException {
-	
+		LocalDate dueDate = currentDate.plusDays(library.getLoanPeriod());
+		Book book = library.getBookByID(bookId);
+		Patron patron = library.getPatronByID(patronId);
+
+		patron.borrowBook(book, dueDate);
     }
 }

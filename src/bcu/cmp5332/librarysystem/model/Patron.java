@@ -48,7 +48,8 @@ public class Patron {
 	}
 
     public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
-        // TODO: implementation here
+		Loan loan = new Loan(this, book, LocalDate.now(), dueDate);
+		book.setLoan(loan);
     }
 
     public void renewBook(Book book, LocalDate dueDate) throws LibraryException {
