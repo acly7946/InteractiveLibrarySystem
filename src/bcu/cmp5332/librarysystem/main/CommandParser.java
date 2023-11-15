@@ -31,10 +31,12 @@ public class CommandParser {
                 String title = br.readLine();
                 System.out.print("Author: ");
                 String author = br.readLine();
+                System.out.print("Publisher: ");
+                String publisher = br.readLine();
                 System.out.print("Publication Year: ");
                 String publicationYear = br.readLine();
 
-                return new AddBook(title, author, publicationYear);
+                return new AddBook(title, author, publisher, publicationYear);
             } else if (cmd.equals("addpatron")) {
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 System.out.print("Name: ");
