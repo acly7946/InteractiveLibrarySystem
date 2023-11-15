@@ -16,35 +16,36 @@ public class Loan {
 		this.dueDate = dueDate;
     }
 
-	public LocalDate getDueDate() {
-		return dueDate;
-	}
-
-	public LocalDate getStartDate() {
-		return startDate;
-	}
-
-	public Book getBook() {
-		return book;
-	}
-
 	public Patron getPatron() {
 		return patron;
-	}
-
-	public void setBook(Book book) {
-		this.book = book;
 	}
 
 	public void setPatron(Patron patron) {
 		this.patron = patron;
 	}
 
-	public void setDueDate(LocalDate dueDate) {
-		this.dueDate = dueDate;
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
+	public LocalDate getStartDate() {
+		return startDate;
 	}
 
 	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
+
+	public LocalDate getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate(LocalDate dueDate) {
+		this.dueDate = dueDate;
+	}
+
 }
