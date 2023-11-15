@@ -23,10 +23,10 @@ public class AddPatron implements Command {
         int maxId = 0;
     	if (library.getPatrons().size() > 0) {
     		int lastIndex = library.getPatrons().size() - 1;
-            maxId = library.getPatrons().get(lastIndex).getID();
+            maxId = library.getPatrons().get(lastIndex).getId();
     	}
         Patron patron = new Patron(++maxId, name, phone, email);
         library.addPatron(patron);
-        System.out.println("Patron #" + patron.getID() + " added.");
+        System.out.println("Patron #" + patron.getId() + " added.");
     }
 }
