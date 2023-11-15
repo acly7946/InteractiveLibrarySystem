@@ -16,7 +16,6 @@ public class Loan {
 		this.dueDate = dueDate;
     }
 
-    // TODO: implementation of Getter and Setter methods
 	public LocalDate getDueDate() {
 		return dueDate;
 	}
@@ -31,5 +30,21 @@ public class Loan {
 
 	public Patron getPatron() {
 		return patron;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
+	public void setPatron(Patron patron) {
+		this.patron = patron;
+	}
+
+	public void setDueDate(LocalDate dueDate) {
+		this.dueDate = dueDate;
+	}
+
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
 	}
 }
