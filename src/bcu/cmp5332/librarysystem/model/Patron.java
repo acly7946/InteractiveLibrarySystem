@@ -76,8 +76,7 @@ public class Patron {
 		} else if(bookLoan.getPatron() != this) {
 			throw new LibraryException("Book is not on loan by patron");
 		}
-		Loan loan = new Loan(this, book, bookLoan.getStartDate(), dueDate);
-		book.setLoan(loan);
+		book.setDueDate(dueDate);
     }
 
     public void returnBook(Book book) throws LibraryException {
