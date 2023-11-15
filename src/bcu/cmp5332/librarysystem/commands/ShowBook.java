@@ -20,11 +20,7 @@ public class ShowBook implements Command {
 		Book book = library.getBookByID(bookId);
 
 		System.out.println(book.getDetailsLong());
-		if(book.isOnLoan()) {
-			Patron patron = book.getLoan().getPatron();
-			LocalDate dueDate = book.getLoan().getDueDate();
-			System.out.println(" Loan: " + patron.getName() + ", due " + dueDate);
-		}
+		System.out.println(" Status: " + book.getStatus());
 
     }
 }
