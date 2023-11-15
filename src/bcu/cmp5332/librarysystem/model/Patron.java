@@ -33,13 +33,49 @@ public class Patron {
 		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getPhone() {
 		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getEmail() {
 		return email;
 	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public List<Book> getBooks() {
+		return Collections.unmodifiableList(books);
+	}
+
+    public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
+		if(book.isOnLoan()) {
+			throw new LibraryException("Book is currently on loan");
+		}
+		Loan loan = new Loan(this, book, LocalDate.now(), dueDate);
+		book.setLoan(loan);
+		this.addBook(book);
+    }
+
+	public void renewBook(Book book, LocalDate dueDate) throws LibraryException {
+		Loan bookLoan = book.getLoan();
+
+		if(bookLoan == null) {
+			throw new LibraryException("Book is not on loan");
+		} else if(bookLoan.getPatron() != this) {
+			throw new LibraryException("Book is not on loan by patron");
+		}
+		book.setDueDate(dueDate);
+    }
 
     public String getDetailsShort() {
         return "Patron #" + id + " - " + name;
@@ -58,30 +94,6 @@ public class Patron {
 				"\n Email: " + email +
 				"\n Books on loan: " + books;
 	}
-
-	public List<Book> getBooks() {
-		return Collections.unmodifiableList(books);
-	}
-
-    public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
-		if(book.isOnLoan()) {
-			throw new LibraryException("Book is currently on loan");
-		}
-		Loan loan = new Loan(this, book, LocalDate.now(), dueDate);
-		book.setLoan(loan);
-		this.addBook(book);
-    }
-
-    public void renewBook(Book book, LocalDate dueDate) throws LibraryException {
-		Loan bookLoan = book.getLoan();
-
-		if(bookLoan == null) {
-			throw new LibraryException("Book is not on loan");
-		} else if(bookLoan.getPatron() != this) {
-			throw new LibraryException("Book is not on loan by patron");
-		}
-		book.setDueDate(dueDate);
-    }
 
     public void returnBook(Book book) throws LibraryException {
 		if(!(this.getBooks().contains(book))) {
