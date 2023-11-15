@@ -49,13 +49,13 @@ public class Book {
 		return publisher;
 	}
 
-    public String getPublicationYear() {
-        return publicationYear;
-    }
-
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
+
+    public String getPublicationYear() {
+        return publicationYear;
+    }
 
     public void setPublicationYear(String publicationYear) {
         this.publicationYear = publicationYear;
@@ -74,7 +74,7 @@ public class Book {
     }
 
     public boolean isOnLoan() {
-        return (loan != null);
+        return (this.loan != null);
     }
 
     public String getStatus() {
@@ -86,7 +86,7 @@ public class Book {
     }
 
     public LocalDate getDueDate() {
-		return loan.getDueDate();
+		return this.loan.getDueDate();
     }
 
     public void setDueDate(LocalDate dueDate) throws LibraryException {
