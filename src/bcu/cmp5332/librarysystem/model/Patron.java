@@ -63,7 +63,18 @@ public class Patron {
     }
 
     public void renewBook(Book book, LocalDate dueDate) throws LibraryException {
-        // TODO: implementation here
+		Loan bookLoan = book.getLoan();
+
+		if(bookLoan == null)
+		{
+			throw new LibraryException("Book is not on loan");
+		}
+		else if(bookLoan.getPatron() != this)
+		{
+			throw new LibraryException("Book is not on loan by patron");
+		}
+		Loan loan = new Loan(this, book, bookLoan.getStartDate(), dueDate);
+		book.setLoan(loan);
     }
 
     public void returnBook(Book book) throws LibraryException {

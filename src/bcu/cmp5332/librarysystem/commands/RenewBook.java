@@ -19,5 +19,10 @@ public class RenewBook implements Command {
 
     @Override
     public void execute(Library library, LocalDate currentDate) throws LibraryException {
+		LocalDate dueDate = currentDate.plusDays(library.getLoanPeriod());
+		Book book = library.getBookByID(bookId);
+		Patron patron = library.getPatronByID(patronId);
+
+		patron.renewBook(book, dueDate);
     }
 }
