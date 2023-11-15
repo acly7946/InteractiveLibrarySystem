@@ -13,6 +13,11 @@ public class Library {
         return loanPeriod;
     }
 
+	public List<Patron> getPatrons() {
+        List<Patron> out = new ArrayList<>(patrons.values());
+        return Collections.unmodifiableList(out);
+    }
+
     public List<Book> getBooks() {
         List<Book> out = new ArrayList<>(books.values());
         return Collections.unmodifiableList(out);
@@ -23,11 +28,6 @@ public class Library {
             throw new LibraryException("There is no such book with that ID.");
         }
         return books.get(id);
-    }
-
-	public List<Patron> getPatrons() {
-        List<Patron> out = new ArrayList<>(patrons.values());
-        return Collections.unmodifiableList(out);
     }
 
     public Patron getPatronByID(int id) throws LibraryException {
