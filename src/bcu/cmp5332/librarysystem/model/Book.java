@@ -78,8 +78,11 @@ public class Book {
     }
 
     public String getStatus() {
-        // TODO: implementation here
-        return null;
+		if(this.isOnLoan()) {
+			return "On loan";
+		} else {
+			return "Available";
+		}
     }
 
     public LocalDate getDueDate() {
@@ -87,7 +90,7 @@ public class Book {
     }
 
     public void setDueDate(LocalDate dueDate) throws LibraryException {
-        // TODO: implementation here
+		this.getLoan().setDueDate(dueDate);
     }
 
     public Loan getLoan() {
