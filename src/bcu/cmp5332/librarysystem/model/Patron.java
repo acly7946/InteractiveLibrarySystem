@@ -14,27 +14,26 @@ public class Patron {
     private String email;
     private final List<Book> books = new ArrayList<>();
 
-	public Patron(int id, String name, String phone, String email)
-	{
+	public Patron(int id, String name, String phone, String email) {
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
 	}
 
-	public int getID(){
+	public int getID() {
 		return id;
 	}
 
-	public String getName(){
+	public String getName() {
 		return name;
 	}
 
-	public String getPhone(){
+	public String getPhone() {
 		return phone;
 	}
 
-	public String getEmail(){
+	public String getEmail() {
 		return email;
 	}
 
@@ -45,7 +44,7 @@ public class Patron {
 	public String getDetailsLong() {
 		String books = "";
 
-		for(Book book : this.books){
+		for(Book book : this.books) {
 			books += "\n  " + book.getDetailsShort();
 		}
 
@@ -61,7 +60,7 @@ public class Patron {
 	}
 
     public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
-		if(book.isOnLoan()){
+		if(book.isOnLoan()) {
 			throw new LibraryException("Book is currently on loan");
 		}
 		Loan loan = new Loan(this, book, LocalDate.now(), dueDate);
@@ -72,12 +71,9 @@ public class Patron {
     public void renewBook(Book book, LocalDate dueDate) throws LibraryException {
 		Loan bookLoan = book.getLoan();
 
-		if(bookLoan == null)
-		{
+		if(bookLoan == null) {
 			throw new LibraryException("Book is not on loan");
-		}
-		else if(bookLoan.getPatron() != this)
-		{
+		} else if(bookLoan.getPatron() != this) {
 			throw new LibraryException("Book is not on loan by patron");
 		}
 		Loan loan = new Loan(this, book, bookLoan.getStartDate(), dueDate);

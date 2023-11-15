@@ -24,7 +24,6 @@ public class CommandParser {
             String[] parts = line.split(" ", 3);
             String cmd = parts[0];
 
-
             if (cmd.equals("addbook")) {
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 System.out.print("Title: ");

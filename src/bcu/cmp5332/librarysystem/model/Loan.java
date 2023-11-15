@@ -17,23 +17,19 @@ public class Loan {
     }
 
     // TODO: implementation of Getter and Setter methods
-	public LocalDate getDueDate()
-	{
+	public LocalDate getDueDate() {
 		return dueDate;
 	}
 
-	public LocalDate getStartDate()
-	{
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
-	public Book getBook()
-	{
+	public Book getBook() {
 		return book;
 	}
 
-	public Patron getPatron()
-	{
+	public Patron getPatron() {
 		return patron;
 	}
 }
