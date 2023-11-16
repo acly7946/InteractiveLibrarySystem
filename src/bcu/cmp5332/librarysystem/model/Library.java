@@ -10,7 +10,7 @@ public class Library {
     private final Map<Integer, Book> books = new TreeMap<>();
 
     public int getLoanPeriod() {
-        return loanPeriod;
+        return this.loanPeriod;
     }
 
 	public List<Patron> getPatrons() {

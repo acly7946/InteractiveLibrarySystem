@@ -22,7 +22,7 @@ public class Patron {
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
@@ -30,7 +30,7 @@ public class Patron {
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -38,7 +38,7 @@ public class Patron {
 	}
 
 	public String getPhone() {
-		return phone;
+		return this.phone;
 	}
 
 	public void setPhone(String phone) {
@@ -46,7 +46,7 @@ public class Patron {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
@@ -78,7 +78,7 @@ public class Patron {
     }
 
     public String getDetailsShort() {
-        return "Patron #" + id + " - " + name;
+        return "Patron #" + this.id + " - " + this.name;
     }
 
 	public String getDetailsLong() {
@@ -88,10 +88,10 @@ public class Patron {
 			books += "\n  " + book.getDetailsShort();
 		}
 
-		return "Patron #" + id +
-				"\n Name: " + name +
-				"\n Phone: " + phone +
-				"\n Email: " + email +
+		return "Patron #" + this.id +
+				"\n Name: " + this.name +
+				"\n Phone: " + this.phone +
+				"\n Email: " + this.email +
 				"\n Books on loan: " + books;
 	}
 

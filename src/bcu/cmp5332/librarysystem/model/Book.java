@@ -22,7 +22,7 @@ public class Book {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -30,7 +30,7 @@ public class Book {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -38,7 +38,7 @@ public class Book {
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     public void setAuthor(String author) {
@@ -46,7 +46,7 @@ public class Book {
     }
 
 	public String getPublisher() {
-		return publisher;
+		return this.publisher;
 	}
 
 	public void setPublisher(String publisher) {
@@ -54,7 +54,7 @@ public class Book {
 	}
 
     public String getPublicationYear() {
-        return publicationYear;
+        return this.publicationYear;
     }
 
     public void setPublicationYear(String publicationYear) {
@@ -94,7 +94,7 @@ public class Book {
     }
 
     public Loan getLoan() {
-        return loan;
+        return this.loan;
     }
 
     public void setLoan(Loan loan) {
@@ -102,6 +102,6 @@ public class Book {
     }
 
     public void returnToLibrary() {
-        loan = null;
+        this.loan = null;
     }
 }

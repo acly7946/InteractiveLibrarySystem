@@ -17,7 +17,7 @@ public class Loan {
     }
 
 	public Patron getPatron() {
-		return patron;
+		return this.patron;
 	}
 
 	public void setPatron(Patron patron) {
@@ -25,7 +25,7 @@ public class Loan {
 	}
 
 	public Book getBook() {
-		return book;
+		return this.book;
 	}
 
 	public void setBook(Book book) {
@@ -33,7 +33,7 @@ public class Loan {
 	}
 
 	public LocalDate getStartDate() {
-		return startDate;
+		return this.startDate;
 	}
 
 	public void setStartDate(LocalDate startDate) {
@@ -41,7 +41,7 @@ public class Loan {
 	}
 
 	public LocalDate getDueDate() {
-		return dueDate;
+		return this.dueDate;
 	}
 
 	public void setDueDate(LocalDate dueDate) {
