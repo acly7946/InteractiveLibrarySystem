@@ -2,7 +2,6 @@ package bcu.cmp5332.librarysystem.test;
 
 import static org.junit.Assert.assertEquals;
 
-
 import bcu.cmp5332.librarysystem.main.LibraryException;
 import bcu.cmp5332.librarysystem.model.Patron;
 
