@@ -2,7 +2,6 @@ package bcu.cmp5332.librarysystem.data;
 
 import bcu.cmp5332.librarysystem.model.Book;
 import bcu.cmp5332.librarysystem.model.Library;
-import bcu.cmp5332.librarysystem.model.Loan;
 import bcu.cmp5332.librarysystem.main.LibraryException;
 import java.io.File;
 import java.io.FileWriter;
