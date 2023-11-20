@@ -11,7 +11,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class LoanDataManager implements DataManager {
@@ -28,7 +27,6 @@ public class LoanDataManager implements DataManager {
 				try {
 					int bookId = Integer.parseInt(properties[1]);
 					int patronId = Integer.parseInt(properties[2]);
-					//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 					LocalDate startDate = LocalDate.parse(properties[3]);
 					LocalDate dueDate = LocalDate.parse(properties[4]);
 					Patron patron = library.getPatronByID(patronId);
@@ -36,7 +34,7 @@ public class LoanDataManager implements DataManager {
 					Loan loan = new Loan(patron, book, startDate, dueDate);
 					book.setLoan(loan);
 				} catch (NumberFormatException ex) {
-					throw new LibraryException("Unable to parse book id " + properties[0] + " on line " + line_idx
+					throw new LibraryException("Unable to parse loan on line " + line_idx
 						+ "\nError: " + ex);
 				}
 				line_idx++;
