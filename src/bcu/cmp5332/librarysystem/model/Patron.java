@@ -58,7 +58,7 @@ public class Patron {
 	}
 
     public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
-		if(book.isOnLoan()) {
+		if (book.isOnLoan()) {
 			throw new LibraryException("Book is currently on loan");
 		}
 		Loan loan = new Loan(this, book, LocalDate.now(), dueDate);
@@ -69,9 +69,9 @@ public class Patron {
 	public void renewBook(Book book, LocalDate dueDate) throws LibraryException {
 		Loan bookLoan = book.getLoan();
 
-		if(bookLoan == null) {
+		if (bookLoan == null) {
 			throw new LibraryException("Book is not on loan");
-		} else if(bookLoan.getPatron() != this) {
+		} else if (bookLoan.getPatron() != this) {
 			throw new LibraryException("Book is not on loan by patron");
 		}
 		book.setDueDate(dueDate);
@@ -84,7 +84,7 @@ public class Patron {
 	public String getDetailsLong() {
 		String books = "";
 
-		for(Book book : this.books) {
+		for (Book book : this.books) {
 			books += "\n  " + book.getDetailsShort();
 		}
 
@@ -96,7 +96,7 @@ public class Patron {
 	}
 
     public void returnBook(Book book) throws LibraryException {
-		if(!(this.getBooks().contains(book))) {
+		if (!(this.getBooks().contains(book))) {
 			throw new LibraryException("Book is not on loan to this patron");
 		}
 		this.books.remove(book);

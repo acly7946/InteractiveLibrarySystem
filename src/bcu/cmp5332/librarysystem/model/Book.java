@@ -78,7 +78,7 @@ public class Book {
     }
 
     public String getStatus() {
-		if(this.isOnLoan()) {
+		if (this.isOnLoan()) {
 			return "On loan";
 		} else {
 			return "Available";
