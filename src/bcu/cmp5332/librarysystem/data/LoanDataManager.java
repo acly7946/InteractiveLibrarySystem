@@ -33,6 +33,7 @@ public class LoanDataManager implements DataManager {
 					Book book = library.getBookByID(bookId);
 					Loan loan = new Loan(patron, book, startDate, dueDate);
 					book.setLoan(loan);
+					patron.addBook(book);
 				} catch (NumberFormatException ex) {
 					throw new LibraryException("Unable to parse loan on line " + line_idx
 						+ "\nError: " + ex);
