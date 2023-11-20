@@ -53,6 +53,7 @@ public class LoanDataManager implements DataManager {
 					out.print(loan.getPatron().getId() + SEPARATOR);
 					out.print(loan.getStartDate().toString() + SEPARATOR);
 					out.print(loan.getDueDate().toString() + SEPARATOR);
+					out.println();
 				}
             }
         }
