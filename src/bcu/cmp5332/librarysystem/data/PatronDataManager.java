@@ -45,6 +45,7 @@ public class PatronDataManager implements DataManager {
 				out.print(patron.getName() + SEPARATOR);
 				out.print(patron.getPhone() + SEPARATOR);
 				out.print(patron.getEmail() + SEPARATOR);
+				out.println();
             }
         }
     }
