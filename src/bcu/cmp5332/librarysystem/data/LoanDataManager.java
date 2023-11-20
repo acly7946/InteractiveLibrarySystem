@@ -25,10 +25,10 @@ public class LoanDataManager implements DataManager {
 				String line = sc.nextLine();
 				String[] properties = line.split(SEPARATOR, -1);
 				try {
-					int bookId = Integer.parseInt(properties[1]);
-					int patronId = Integer.parseInt(properties[2]);
-					LocalDate startDate = LocalDate.parse(properties[3]);
-					LocalDate dueDate = LocalDate.parse(properties[4]);
+					int bookId = Integer.parseInt(properties[0]);
+					int patronId = Integer.parseInt(properties[1]);
+					LocalDate startDate = LocalDate.parse(properties[2]);
+					LocalDate dueDate = LocalDate.parse(properties[3]);
 					Patron patron = library.getPatronByID(patronId);
 					Book book = library.getBookByID(bookId);
 					Loan loan = new Loan(patron, book, startDate, dueDate);
