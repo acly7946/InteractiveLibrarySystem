@@ -2,6 +2,7 @@ package bcu.cmp5332.librarysystem.data;
 
 import bcu.cmp5332.librarysystem.model.Book;
 import bcu.cmp5332.librarysystem.model.Library;
+import bcu.cmp5332.librarysystem.model.Loan;
 import bcu.cmp5332.librarysystem.main.LibraryException;
 import java.io.File;
 import java.io.FileWriter;
@@ -41,12 +42,14 @@ public class BookDataManager implements DataManager {
     public void storeData(Library library) throws IOException {
         try (PrintWriter out = new PrintWriter(new FileWriter(RESOURCE))) {
             for (Book book : library.getBooks()) {
-                out.print(book.getId() + SEPARATOR);
-                out.print(book.getTitle() + SEPARATOR);
-                out.print(book.getAuthor() + SEPARATOR);
-                out.print(book.getPublisher() + SEPARATOR);
-                out.print(book.getPublicationYear() + SEPARATOR);
-                out.println();
+				if(book.isOnLoan()) {
+					Loan loan = book.getLoan();
+					out.print(book.getId() + SEPARATOR);
+					out.print(loan.getPatron().getId() + SEPARATOR);
+					out.print(loan.getStartDate().toString() + SEPARATOR);
+					out.print(book.getDueDate().toString() + SEPARATOR);
+					out.println();
+				}
             }
         }
     }
