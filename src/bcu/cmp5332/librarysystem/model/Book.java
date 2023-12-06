@@ -6,6 +6,7 @@ import java.time.LocalDate;
 public class Book {
 
     private int id;
+	private boolean deleted;
     private String title;
     private String author;
 	private String publisher;
@@ -15,6 +16,7 @@ public class Book {
 
     public Book(int id, String title, String author, String publisher, String publicationYear) {
         this.id = id;
+		this.deleted = false;
         this.title = title;
         this.author = author;
 		this.publisher = publisher;
@@ -28,6 +30,14 @@ public class Book {
     public void setId(int id) {
         this.id = id;
     }
+
+	public boolean getDeleted() {
+		return this.deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
 
     public String getTitle() {
         return this.title;
