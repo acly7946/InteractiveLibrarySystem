@@ -18,6 +18,10 @@ public class ShowBook implements Command {
     public void execute(Library library, LocalDate currentDate) throws LibraryException {
 		Book book = library.getBookByID(bookId);
 
+		if (book.getDeleted()) {
+			throw new LibraryException("There is no such book with that ID.");
+		}
+
 		System.out.println(book.getDetailsLong());
 		System.out.println(" Status: " + book.getStatus());
 

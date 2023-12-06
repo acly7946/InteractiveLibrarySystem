@@ -12,9 +12,14 @@ public class ListBooks implements Command {
     @Override
     public void execute(Library library, LocalDate currentDate) throws LibraryException {
         List<Book> books = library.getBooks();
+		int deletedBooks = 0;
         for (Book book : books) {
+			if (book.getDeleted()) {
+				deletedBooks++;
+				continue;
+			}
             System.out.println(book.getDetailsShort());
         }
-        System.out.println(books.size() + " book(s)");
+        System.out.println(books.size()-deletedBooks + " book(s)");
     }
 }
