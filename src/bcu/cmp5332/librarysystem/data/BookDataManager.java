@@ -22,10 +22,11 @@ public class BookDataManager implements DataManager {
                 String[] properties = line.split(SEPARATOR, -1);
                 try {
                     int id = Integer.parseInt(properties[0]);
-                    String title = properties[1];
-                    String author = properties[2];
-                    String publisher = properties[3];
-                    String publicationYear = properties[4];
+					boolean deleted = Boolean.parseBoolean(properties[1]);
+                    String title = properties[2];
+                    String author = properties[3];
+                    String publisher = properties[4];
+                    String publicationYear = properties[5];
                     Book book = new Book(id, title, author, publisher, publicationYear);
                     library.addBook(book);
                 } catch (NumberFormatException ex) {
@@ -42,6 +43,7 @@ public class BookDataManager implements DataManager {
         try (PrintWriter out = new PrintWriter(new FileWriter(RESOURCE))) {
             for (Book book : library.getBooks()) {
                 out.print(book.getId() + SEPARATOR);
+				out.print(book.getDeleted() + SEPARATOR);
                 out.print(book.getTitle() + SEPARATOR);
                 out.print(book.getAuthor() + SEPARATOR);
                 out.print(book.getPublisher() + SEPARATOR);
