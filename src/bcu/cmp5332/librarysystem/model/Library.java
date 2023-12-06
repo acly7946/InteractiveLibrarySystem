@@ -21,13 +21,6 @@ public class Library {
     public List<Book> getBooks() {
         List<Book> out = new ArrayList<>(books.values());
 
-		for(int i = 0; i < out.size(); i++) {
-			if(out.get(i).getDeleted()) {
-				out.remove(i);
-				i--;
-			}
-		}
-
         return Collections.unmodifiableList(out);
     }
 
