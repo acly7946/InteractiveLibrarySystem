@@ -26,7 +26,7 @@ public class AddBook implements Command {
     		int lastIndex = library.getBooks().size() - 1;
             maxId = library.getBooks().get(lastIndex).getId();
     	}
-        Book book = new Book(++maxId, title, author, publisher, publicationYear);
+        Book book = new Book(++maxId, true, title, author, publisher, publicationYear);
         library.addBook(book);
         System.out.println("Book #" + book.getId() + " added.");
     }

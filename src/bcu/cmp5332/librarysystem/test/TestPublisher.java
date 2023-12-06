@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class TestPublisher {
 
-	Book book = new Book(-1, "Test", "Test", "PUBLISHER", "Year");
+	Book book = new Book(-1, true, "Test", "Test", "PUBLISHER", "Year");
 
 	@Test
 	public void testGetPublisher() {
