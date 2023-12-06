@@ -57,4 +57,11 @@ public class Library {
         }
         patrons.put(patron.getId(), patron);
     }
+
+	public void removeBook(int id) throws LibraryException {
+		if (!books.containsKey(id)) {
+            throw new LibraryException("There is no such book with that ID.");
+		}
+		books.get(id).setDeleted(true);
+	}
 }
