@@ -14,9 +14,9 @@ public class Book {
 
     private Loan loan;
 
-    public Book(int id, String title, String author, String publisher, String publicationYear) {
+    public Book(int id, boolean deleted, String title, String author, String publisher, String publicationYear) {
         this.id = id;
-		this.deleted = false;
+		this.deleted = deleted;
         this.title = title;
         this.author = author;
 		this.publisher = publisher;

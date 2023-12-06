@@ -27,7 +27,7 @@ public class BookDataManager implements DataManager {
                     String author = properties[3];
                     String publisher = properties[4];
                     String publicationYear = properties[5];
-                    Book book = new Book(id, title, author, publisher, publicationYear);
+                    Book book = new Book(id, deleted, title, author, publisher, publicationYear);
                     library.addBook(book);
                 } catch (NumberFormatException ex) {
                     throw new LibraryException("Unable to parse book id " + properties[0] + " on line " + line_idx
