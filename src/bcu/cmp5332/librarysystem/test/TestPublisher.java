@@ -35,7 +35,7 @@ public class TestPublisher {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] properties = line.split(SEPARATOR, -1);
-				assertEquals(5, properties.length);
+				assertEquals(7, properties.length);
             }
         }
 	}
