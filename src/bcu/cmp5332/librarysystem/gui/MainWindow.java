@@ -155,12 +155,25 @@ public class MainWindow extends JFrame implements ActionListener {
 
     public void displayBooks() {
         List<Book> booksList = library.getBooks();
+		int numDeleted = 0;
+
+		for (Book book : booksList) {
+			if (book.getDeleted()) {
+				numDeleted++;
+			}
+		}
+
         // headers for the table
         String[] columns = new String[]{"Title", "Author", "Pub Date", "Status"};
 
-        Object[][] data = new Object[booksList.size()][6];
+        Object[][] data = new Object[booksList.size() - numDeleted][6];
         for (int i = 0; i < booksList.size(); i++) {
             Book book = booksList.get(i);
+
+			if (book.getDeleted()) {
+				continue;
+			}
+
             data[i][0] = book.getTitle();
             data[i][1] = book.getAuthor();
             data[i][2] = book.getPublicationYear();
