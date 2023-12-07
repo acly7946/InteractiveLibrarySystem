@@ -16,5 +16,6 @@ public class RemoveBook implements Command {
     @Override
     public void execute(Library library, LocalDate currentDate) throws LibraryException {
 		library.removeBook(bookId);
+		System.out.println("Book " + bookId + " removed");
     }
 }
