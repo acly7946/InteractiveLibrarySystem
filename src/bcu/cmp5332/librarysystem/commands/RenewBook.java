@@ -23,6 +23,10 @@ public class RenewBook implements Command {
 		Book book = library.getBookByID(bookId);
 		Patron patron = library.getPatronByID(patronId);
 
+		if (book.getDeleted()) {
+			throw new LibraryException("There is no such book with that ID.");
+		}
+
 		patron.renewBook(book, dueDate);
     }
 }

@@ -23,6 +23,10 @@ public class BorrowBook implements Command {
 		Patron patron = library.getPatronByID(patronId);
 		Book book = library.getBookByID(bookId);
 
+		if (book.getDeleted()) {
+			throw new LibraryException("There is no such book with that ID.");
+		}
+
 		patron.borrowBook(book, dueDate);
     }
 }

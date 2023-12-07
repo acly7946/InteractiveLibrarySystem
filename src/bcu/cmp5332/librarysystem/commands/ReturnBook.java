@@ -22,6 +22,10 @@ public class ReturnBook implements Command {
 		Patron patron = library.getPatronByID(patronId);
 		Book book = library.getBookByID(bookId);
 
+		if (book.getDeleted()) {
+			throw new LibraryException("There is no such book with that ID.");
+		}
+
 		patron.returnBook(book);
 		System.out.println("Book " + bookId + " returned by " + patronId);
     }
