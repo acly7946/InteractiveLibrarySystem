@@ -167,7 +167,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		booksList.removeAll(deletedBooks);
 
         // headers for the table
-        String[] columns = new String[]{"Title", "Author", "Pub Date", "Status"};
+        String[] columns = new String[]{"Title", "Author", "Publisher", "Pub. Year", "Status"};
 
         Object[][] data = new Object[booksList.size()][6];
         for (int i = 0; i < booksList.size(); i++) {
@@ -175,8 +175,9 @@ public class MainWindow extends JFrame implements ActionListener {
 
             data[i][0] = book.getTitle();
             data[i][1] = book.getAuthor();
-            data[i][2] = book.getPublicationYear();
-            data[i][3] = book.getStatus();
+            data[i][2] = book.getPublisher();
+            data[i][3] = book.getPublicationYear();
+            data[i][4] = book.getStatus();
         }
 
         JTable table = new JTable(data, columns);
