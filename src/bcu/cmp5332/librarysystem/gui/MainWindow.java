@@ -4,8 +4,11 @@ import bcu.cmp5332.librarysystem.model.Book;
 import bcu.cmp5332.librarysystem.model.Library;
 import bcu.cmp5332.librarysystem.model.Patron;
 
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
@@ -161,6 +164,7 @@ public class MainWindow extends JFrame implements ActionListener {
         List<Book> libraryData = library.getBooks();
         List<Book> booksList = new ArrayList<>(libraryData);
 		List<Book> deletedBooks = new ArrayList<>();
+		JTable table = new JTable();
 
 		for (Book book : booksList) {
 			if (book.getDeleted()) {
@@ -183,7 +187,19 @@ public class MainWindow extends JFrame implements ActionListener {
             data[i][4] = book.getStatus();
         }
 
-        JTable table = new JTable(data, columns);
+        table = new JTable(data, columns);
+		// Show details window on double click
+		table.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table =(JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+					new BookDetailsWindow(MainWindow.this, booksList.get(row));
+				}
+			}
+		});
+
         this.getContentPane().removeAll();
         this.getContentPane().add(new JScrollPane(table));
         this.revalidate();
