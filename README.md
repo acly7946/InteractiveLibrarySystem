@@ -15,7 +15,6 @@ CMP5332 Coursework implementing a library system in Java
 | Add a publisher property to the Book object and make the appropriate changes to the program to ensure that this information can be captured when a new Book is created. Also ensure that this information will be stored to and correctly loaded from the file storage. | [X] |
 | Add an email property to the Patron object and make the appropriate changes to the program to ensure that this information can be captured when a new Patron is created. Also ensure that this information will be stored to and correctly loaded from the file storage. | [X] |
 | Implement Unit Tests to validate and demonstrate that the above changes made to the Book and Patron classes work as expected. | [X] |
-| Extend the prototype implementation for the GUI application provided to allow for the following basic functionalities: | |
 | Display a popup window that will show the Patron details if a Book is on loan. | [ ] |
 | List all Patrons and their details including the number of books they have on loan. | [X] |
 | Display a popup window that will show the Books details if a Patron has Books on loan. | [ ] |
