@@ -6,12 +6,17 @@ import java.util.*;
 public class Library {
 
     private final int loanPeriod = 7;
+	private final int maxLoans = 5;
     private final Map<Integer, Patron> patrons = new TreeMap<>();
     private final Map<Integer, Book> books = new TreeMap<>();
 
     public int getLoanPeriod() {
         return this.loanPeriod;
     }
+
+	public int getMaxLoans() {
+		return this.maxLoans;
+	}
 
 	public List<Patron> getPatrons() {
         List<Patron> out = new ArrayList<>(patrons.values());
