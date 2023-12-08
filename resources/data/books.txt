@@ -1,4 +1,4 @@
-15::false::Pride and Prejudice::Jane Austen::PUBLISHER::1813::
-23::false::Nineteen Eighty-Four::George Orwell::PUBLISHER::1949::
-42::false::The Hitchhiker's Guide to the Galaxy::Douglas Adams::PUBLISHER::1979::
-43::false::The War of The Worlds::H.G. Wells::PUBLISHER::1898::
+15::false::Pride and Prejudice::Jane Austen::T.Egerton, Whitehall::1813::
+23::false::Nineteen Eighty-Four::George Orwell::Secker & Warburg::1949::
+42::false::The Hitchhiker's Guide to the Galaxy::Douglas Adams::Pan Books::1979::
+43::false::The War of The Worlds::H.G. Wells::William Heinemann::1898::
