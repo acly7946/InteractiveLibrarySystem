@@ -23,7 +23,7 @@ CMP5332 Coursework implementing a library system in Java
 | **Achieving a mark of 70% to maximum of 79%**  | |
 | Remove (hide) existing books from the system. When a book is removed, it should not appear in the books view. Instead of completely deleting a book, use a Boolean property in the Book class to indicate whether the book is deleted. Change the affected functions appropriately to return only the books that are not deleted. | [X] |
 | Remove (hide) existing Patrons from the system. When a patron is removed, it should not appear in the patrons view. Instead of completely deleting a patron, use a Boolean property in the Patron class to indicate that the patron is deleted. Change the affected functions appropriately to return only the books that are not deleted. | [X] |
-| Impose a limit on the maximum number of books that a patron can borrow and use that during issuing books for a patron. | [ ] |
+| Impose a limit on the maximum number of books that a patron can borrow and use that during issuing books for a patron. | [X] |
 | Extend the implementation for the GUI application to add the Delete functionality for both Books and Patrons using the GUI. | [ ] |
 | Add Javadoc documentation for the newly created methods. | [ ] |
 | **Achieving a mark of 80% and over**| |
