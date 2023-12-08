@@ -4,7 +4,7 @@ CMP5332 Coursework implementing a library system in Java
 
 ## Checklist
 | **Achieving a mark of 40% to maximum of 49%**                                                                                     |    |
-|------------------------------------------------------------------------------------------------------------------------------|-----|
+|:------------------------------------------------------------------------------------------------------------------------------|-----|
 | Add new Patrons (members) to the system. System should store at least the following information for each member: ID, Name, Phone Number and List of Books Borrowed.                         | [x]   |
 | List all Books stored in the system.                                                                                          | [x]   |
 | List all Patrons stored in the system.                                                                                        | [x]   |
