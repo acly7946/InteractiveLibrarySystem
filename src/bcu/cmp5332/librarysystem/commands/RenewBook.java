@@ -25,6 +25,8 @@ public class RenewBook implements Command {
 
 		if (book.getDeleted()) {
 			throw new LibraryException("There is no such book with that ID.");
+		} else if (patron.getDeleted()) {
+			throw new LibraryException("There is no such patron with that ID.");
 		}
 
 		patron.renewBook(book, dueDate);

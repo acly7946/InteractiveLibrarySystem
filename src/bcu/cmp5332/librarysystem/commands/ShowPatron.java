@@ -17,6 +17,9 @@ public class ShowPatron implements Command {
     @Override
     public void execute(Library library, LocalDate currentDate) throws LibraryException {
 		Patron patron = library.getPatronByID(patronId);
+		if (patron.getDeleted()) {
+			throw new LibraryException("There is no such patron with that ID.");
+		}
 		System.out.println(patron.getDetailsLong());
     }
 }
