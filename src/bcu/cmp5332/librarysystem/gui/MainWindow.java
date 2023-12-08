@@ -4,6 +4,7 @@ import bcu.cmp5332.librarysystem.model.Book;
 import bcu.cmp5332.librarysystem.model.Library;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -154,25 +155,23 @@ public class MainWindow extends JFrame implements ActionListener {
     }
 
     public void displayBooks() {
-        List<Book> booksList = library.getBooks();
-		int numDeleted = 0;
+        List<Book> libraryData = library.getBooks();
+        List<Book> booksList = new ArrayList<>(libraryData);
+		List<Book> deletedBooks = new ArrayList<>();
 
 		for (Book book : booksList) {
 			if (book.getDeleted()) {
-				numDeleted++;
+				deletedBooks.add(book);
 			}
 		}
+		booksList.removeAll(deletedBooks);
 
         // headers for the table
         String[] columns = new String[]{"Title", "Author", "Pub Date", "Status"};
 
-        Object[][] data = new Object[booksList.size() - numDeleted][6];
+        Object[][] data = new Object[booksList.size()][6];
         for (int i = 0; i < booksList.size(); i++) {
             Book book = booksList.get(i);
-
-			if (book.getDeleted()) {
-				continue;
-			}
 
             data[i][0] = book.getTitle();
             data[i][1] = book.getAuthor();
