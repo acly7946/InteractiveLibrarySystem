@@ -2,6 +2,8 @@ package bcu.cmp5332.librarysystem.gui;
 
 import bcu.cmp5332.librarysystem.model.Book;
 import bcu.cmp5332.librarysystem.model.Library;
+import bcu.cmp5332.librarysystem.model.Patron;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -143,10 +145,11 @@ public class MainWindow extends JFrame implements ActionListener {
 
 
         } else if (ae.getSource() == memView) {
+			displayPatrons();
 
 
         } else if (ae.getSource() == memAdd) {
-
+			new AddPatronWindow(this);
 
         } else if (ae.getSource() == memDel) {
 
@@ -184,5 +187,35 @@ public class MainWindow extends JFrame implements ActionListener {
         this.getContentPane().removeAll();
         this.getContentPane().add(new JScrollPane(table));
         this.revalidate();
+    }
+
+	public void displayPatrons() {
+		List<Patron> libraryData = library.getPatrons();
+		List<Patron> patronsList = new ArrayList<>(libraryData);
+		List<Patron> deletedPatrons = new ArrayList<>();
+
+		for (Patron patron : patronsList) {
+			//if (patron.getDeleted()) {
+			//	deletedPatrons.add(patron);
+			//}
+		}
+		patronsList.removeAll(deletedPatrons);
+
+		// headers for the table
+		String[] columns = new String[]{"Name", "Phone", "Email"};
+
+		Object[][] data = new Object[patronsList.size()][3];
+		for (int i = 0; i < patronsList.size(); i++) {
+			Patron patron = patronsList.get(i);
+
+			data[i][0] = patron.getName();
+			data[i][1] = patron.getPhone();
+			data[i][2] = patron.getEmail();
+		}
+
+		JTable table = new JTable(data, columns);
+		this.getContentPane().removeAll();
+		this.getContentPane().add(new JScrollPane(table));
+		this.revalidate();
     }
 }
