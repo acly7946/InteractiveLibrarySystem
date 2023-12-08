@@ -23,10 +23,11 @@ public class PatronDataManager implements DataManager {
                 String[] properties = line.split(SEPARATOR, -1);
                 try {
                     int id = Integer.parseInt(properties[0]);
-                    String name = properties[1];
-                    String phone = properties[2];
-                    String email = properties[3];
-					Patron patron = new Patron(id, name, phone, email);
+					boolean deleted = Boolean.parseBoolean(properties[1]);
+                    String name = properties[2];
+                    String phone = properties[3];
+                    String email = properties[4];
+					Patron patron = new Patron(id, deleted, name, phone, email);
                     library.addPatron(patron);
                 } catch (NumberFormatException ex) {
                     throw new LibraryException("Unable to parse book id " + properties[0] + " on line " + line_idx
@@ -42,6 +43,7 @@ public class PatronDataManager implements DataManager {
         try (PrintWriter out = new PrintWriter(new FileWriter(RESOURCE))) {
             for (Patron patron : library.getPatrons()) {
 				out.print(patron.getId() + SEPARATOR);
+				out.print(patron.getDeleted() + SEPARATOR);
 				out.print(patron.getName() + SEPARATOR);
 				out.print(patron.getPhone() + SEPARATOR);
 				out.print(patron.getEmail() + SEPARATOR);

@@ -16,6 +16,7 @@ public interface Command {
             + "\tshowpatron [patron id]          show patron details\n"
             + "\tborrow [patron id] [book id]    borrow a book\n"
             + "\tremovebook [book id]            remove a book\n"
+			+ "\tremovepatron [patron id]        remove a patron\n"
             + "\trenew [patron id] [book id]     renew a book\n"
             + "\treturn [patron id] [book id]    return a book\n"
             + "\tloadgui                         loads the GUI version of the app\n"

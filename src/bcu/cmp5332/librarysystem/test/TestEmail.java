@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public class TestEmail {
 
-	Patron patron = new Patron(-1, "Test", "123", "Email@Email.com");
+	Patron patron = new Patron(-1, false, "Test", "123", "Email@Email.com");
 
 	@Test
 	public void testGetEmail() throws LibraryException, IOException {

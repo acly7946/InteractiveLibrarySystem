@@ -9,13 +9,15 @@ import java.util.List;
 public class Patron {
 
     private int id;
+	private boolean deleted;
     private String name;
     private String phone;
     private String email;
     private final List<Book> books = new ArrayList<>();
 
-	public Patron(int id, String name, String phone, String email) {
+	public Patron(int id, boolean deleted, String name, String phone, String email) {
 		this.id = id;
+		this.deleted = deleted;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
@@ -27,6 +29,14 @@ public class Patron {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public boolean getDeleted() {
+		return this.deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
 	}
 
 	public String getName() {

@@ -25,7 +25,7 @@ public class AddPatron implements Command {
     		int lastIndex = library.getPatrons().size() - 1;
             maxId = library.getPatrons().get(lastIndex).getId();
     	}
-        Patron patron = new Patron(++maxId, name, phone, email);
+        Patron patron = new Patron(++maxId, false, name, phone, email);
         library.addPatron(patron);
         System.out.println("Patron #" + patron.getId() + " added.");
     }

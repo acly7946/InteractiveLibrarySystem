@@ -2,6 +2,7 @@ package bcu.cmp5332.librarysystem.main;
 
 import bcu.cmp5332.librarysystem.commands.LoadGUI;
 import bcu.cmp5332.librarysystem.commands.RemoveBook;
+import bcu.cmp5332.librarysystem.commands.RemovePatron;
 import bcu.cmp5332.librarysystem.commands.ReturnBook;
 import bcu.cmp5332.librarysystem.commands.RenewBook;
 import bcu.cmp5332.librarysystem.commands.ShowBook;
@@ -61,6 +62,8 @@ public class CommandParser {
 
 				if (cmd.equals("removebook")) {
 					return new RemoveBook(id);
+				} else if (cmd.equals("removepatron")) {
+					return new RemovePatron(id);
 				} else if (cmd.equals("showbook")) {
 					return new ShowBook(id);
                 } else if (cmd.equals("showpatron")) {
