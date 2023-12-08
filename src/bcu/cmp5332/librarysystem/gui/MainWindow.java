@@ -195,9 +195,9 @@ public class MainWindow extends JFrame implements ActionListener {
 		List<Patron> deletedPatrons = new ArrayList<>();
 
 		for (Patron patron : patronsList) {
-			//if (patron.getDeleted()) {
-			//	deletedPatrons.add(patron);
-			//}
+			if (patron.getDeleted()) {
+				deletedPatrons.add(patron);
+			}
 		}
 		patronsList.removeAll(deletedPatrons);
 
