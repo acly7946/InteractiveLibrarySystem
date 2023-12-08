@@ -27,6 +27,8 @@ public class BorrowBook implements Command {
 			throw new LibraryException("There is no such book with that ID.");
 		} else if (patron.getDeleted()) {
 			throw new LibraryException("There is no such patron with that ID.");
+		} else if (patron.getBooks().size() >= library.getMaxLoans()) {
+			throw new LibraryException("Maximum number of (" + library.getMaxLoans() + ") books reached.");
 		}
 
 		patron.borrowBook(book, dueDate);
