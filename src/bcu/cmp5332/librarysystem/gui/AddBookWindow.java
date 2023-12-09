@@ -1,6 +1,7 @@
 package bcu.cmp5332.librarysystem.gui;
 
 import bcu.cmp5332.librarysystem.commands.AddBook;
+import bcu.cmp5332.librarysystem.commands.BorrowBook;
 import bcu.cmp5332.librarysystem.commands.Command;
 import bcu.cmp5332.librarysystem.main.LibraryException;
 import java.awt.BorderLayout;
@@ -91,6 +92,9 @@ public class AddBookWindow extends JFrame implements ActionListener {
             String author = authText.getText();
             String publisher = pubText.getText();
             String publicationYear = pubDateText.getText();
+			if (title.isEmpty() || author.isEmpty() || publisher.isEmpty() || publicationYear.isEmpty()) {
+				throw new LibraryException("Please fill in all fields.");
+			}
             // create and execute the AddBook Command
             Command addBook = new AddBook(title, author, publisher, publicationYear);
             addBook.execute(mw.getLibrary(), LocalDate.now());
