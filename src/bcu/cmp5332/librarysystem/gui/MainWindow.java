@@ -4,14 +4,18 @@ import bcu.cmp5332.librarysystem.model.Book;
 import bcu.cmp5332.librarysystem.model.Library;
 import bcu.cmp5332.librarysystem.model.Patron;
 
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
@@ -127,31 +131,38 @@ public class MainWindow extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
 
-        if (ae.getSource() == adminExit) {
-            System.exit(0);
-        } else if (ae.getSource() == booksView) {
-            displayBooks();
-        } else if (ae.getSource() == booksAdd) {
-            new AddBookWindow(this);
-        } else if (ae.getSource() == booksDel) {
+		try {
+			if (ae.getSource() == adminExit) {
+				System.exit(0);
+			} else if (ae.getSource() == booksView) {
+				displayBooks();
+			} else if (ae.getSource() == booksAdd) {
+				new AddBookWindow(this);
+			} else if (ae.getSource() == booksDel) {
 
-        } else if (ae.getSource() == booksIssue) {
+			} else if (ae.getSource() == booksIssue) {
 
-        } else if (ae.getSource() == booksReturn) {
+			} else if (ae.getSource() == booksReturn) {
 
-        } else if (ae.getSource() == memView) {
-			displayPatrons();
-        } else if (ae.getSource() == memAdd) {
-			new AddPatronWindow(this);
-        } else if (ae.getSource() == memDel) {
+			} else if (ae.getSource() == memView) {
+				displayPatrons();
+			} else if (ae.getSource() == memAdd) {
+				new AddPatronWindow(this);
+			} else if (ae.getSource() == memDel) {
 
-        }
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e, "Error", JOptionPane.ERROR_MESSAGE);
+		}
     }
 
     public void displayBooks() {
         List<Book> libraryData = library.getBooks();
         List<Book> booksList = new ArrayList<>(libraryData);
 		List<Book> deletedBooks = new ArrayList<>();
+		JTable table = new JTable();
+		String[] columns;
+		Object[][] data;
 
 		for (Book book : booksList) {
 			if (book.getDeleted()) {
@@ -161,12 +172,10 @@ public class MainWindow extends JFrame implements ActionListener {
 		booksList.removeAll(deletedBooks);
 
         // headers for the table
-        String[] columns = new String[]{"Title", "Author", "Publisher", "Pub. Year", "Status"};
-
-        Object[][] data = new Object[booksList.size()][6];
+        columns = new String[]{"Title", "Author", "Publisher", "Pub. Year", "Status"};
+        data = new Object[booksList.size()][6];
         for (int i = 0; i < booksList.size(); i++) {
             Book book = booksList.get(i);
-
             data[i][0] = book.getTitle();
             data[i][1] = book.getAuthor();
             data[i][2] = book.getPublisher();
@@ -174,7 +183,19 @@ public class MainWindow extends JFrame implements ActionListener {
             data[i][4] = book.getStatus();
         }
 
-        JTable table = new JTable(data, columns);
+        table = new JTable(data, columns);
+		table.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table =(JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if ((mouseEvent.getClickCount() == 2)) {
+					if (booksList.get(row).isOnLoan()) {
+						new PatronDetailsWindow(MainWindow.this, booksList.get(row).getLoan().getPatron());
+					}
+				}
+			}
+		});
         this.getContentPane().removeAll();
         this.getContentPane().add(new JScrollPane(table));
         this.revalidate();
@@ -184,6 +205,9 @@ public class MainWindow extends JFrame implements ActionListener {
 		List<Patron> libraryData = library.getPatrons();
 		List<Patron> patronsList = new ArrayList<>(libraryData);
 		List<Patron> deletedPatrons = new ArrayList<>();
+		JTable table = new JTable();
+		String[] columns;
+		Object[][] data;
 
 		for (Patron patron : patronsList) {
 			if (patron.getDeleted()) {
@@ -193,18 +217,28 @@ public class MainWindow extends JFrame implements ActionListener {
 		patronsList.removeAll(deletedPatrons);
 
 		// headers for the table
-		String[] columns = new String[]{"Name", "Phone", "Email"};
-
-		Object[][] data = new Object[patronsList.size()][3];
+		columns = new String[]{"Name", "Phone", "Email"};
+		data = new Object[patronsList.size()][3];
 		for (int i = 0; i < patronsList.size(); i++) {
 			Patron patron = patronsList.get(i);
-
 			data[i][0] = patron.getName();
 			data[i][1] = patron.getPhone();
 			data[i][2] = patron.getEmail();
 		}
 
-		JTable table = new JTable(data, columns);
+		table = new JTable(data, columns);
+		// Show details window on double click
+		table.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table =(JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if ((mouseEvent.getClickCount() == 2)) {
+					new BooksLoanedWindow(MainWindow.this, patronsList.get(row).getBooks());
+				}
+			}
+		});
+
 		this.getContentPane().removeAll();
 		this.getContentPane().add(new JScrollPane(table));
 		this.revalidate();
