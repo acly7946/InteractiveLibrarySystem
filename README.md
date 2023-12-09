@@ -15,9 +15,9 @@ CMP5332 Coursework implementing a library system in Java
 | Add a publisher property to the Book object and make the appropriate changes to the program to ensure that this information can be captured when a new Book is created. Also ensure that this information will be stored to and correctly loaded from the file storage. | [X] |
 | Add an email property to the Patron object and make the appropriate changes to the program to ensure that this information can be captured when a new Patron is created. Also ensure that this information will be stored to and correctly loaded from the file storage. | [X] |
 | Implement Unit Tests to validate and demonstrate that the above changes made to the Book and Patron classes work as expected. | [X] |
-| Display a popup window that will show the Patron details if a Book is on loan. | [ ] |
+| Display a popup window that will show the Patron details if a Book is on loan. | [X] |
 | List all Patrons and their details including the number of books they have on loan. | [X] |
-| Display a popup window that will show the Books details if a Patron has Books on loan. | [ ] |
+| Display a popup window that will show the Books details if a Patron has Books on loan. | [X] |
 | Display a popup window when the “Add” submenu of the “Patrons” menu item is selected. The popup should display a form that allows the addition of a new Patron to the system. | [X] |
 | Extend the functionality of the library system to allow for storing data to the file storage after the execution of commands that change the state of the system (e.g. “addbook”, “renewbook”). If the system fails to store the data on the file storage due to an error (e.g. file is already in used or corrupted), the program must inform the user and rollback any changes made to the system prior to the error. You can change the file permission to “read-only” in order to test this functionality. | [ ] |
 | **Achieving a mark of 70% to maximum of 79%**  | |
