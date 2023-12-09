@@ -53,10 +53,8 @@ public BookDetailsWindow(MainWindow mw, List<Book> books) {
         // headers for the table
         columns = new String[]{"Title", "Author", "Publisher", "Pub. Year", "Status"};
         data = new Object[books.size()][6];
-
         for (int i = 0; i < books.size(); i++) {
             Book book = books.get(i);
-
             data[i][0] = book.getTitle();
             data[i][1] = book.getAuthor();
             data[i][2] = book.getPublisher();

@@ -165,6 +165,8 @@ public class MainWindow extends JFrame implements ActionListener {
         List<Book> booksList = new ArrayList<>(libraryData);
 		List<Book> deletedBooks = new ArrayList<>();
 		JTable table = new JTable();
+		String[] columns;
+		Object[][] data;
 
 		for (Book book : booksList) {
 			if (book.getDeleted()) {
@@ -174,12 +176,10 @@ public class MainWindow extends JFrame implements ActionListener {
 		booksList.removeAll(deletedBooks);
 
         // headers for the table
-        String[] columns = new String[]{"Title", "Author", "Publisher", "Pub. Year", "Status"};
-
-        Object[][] data = new Object[booksList.size()][6];
+        columns = new String[]{"Title", "Author", "Publisher", "Pub. Year", "Status"};
+        data = new Object[booksList.size()][6];
         for (int i = 0; i < booksList.size(); i++) {
             Book book = booksList.get(i);
-
             data[i][0] = book.getTitle();
             data[i][1] = book.getAuthor();
             data[i][2] = book.getPublisher();
@@ -198,6 +198,8 @@ public class MainWindow extends JFrame implements ActionListener {
 		List<Patron> patronsList = new ArrayList<>(libraryData);
 		List<Patron> deletedPatrons = new ArrayList<>();
 		JTable table = new JTable();
+		String[] columns;
+		Object[][] data;
 
 		for (Patron patron : patronsList) {
 			if (patron.getDeleted()) {
@@ -207,12 +209,10 @@ public class MainWindow extends JFrame implements ActionListener {
 		patronsList.removeAll(deletedPatrons);
 
 		// headers for the table
-		String[] columns = new String[]{"Name", "Phone", "Email"};
-
-		Object[][] data = new Object[patronsList.size()][3];
+		columns = new String[]{"Name", "Phone", "Email"};
+		data = new Object[patronsList.size()][3];
 		for (int i = 0; i < patronsList.size(); i++) {
 			Patron patron = patronsList.get(i);
-
 			data[i][0] = patron.getName();
 			data[i][1] = patron.getPhone();
 			data[i][2] = patron.getEmail();
