@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -23,11 +22,11 @@ public class BookDetailsWindow extends JFrame implements ActionListener {
 
     private JButton closeBtn = new JButton("Close");
 
-public BookDetailsWindow(MainWindow mw, List<Book> books) {
-	this.mw = mw;
-	this.books = books;
-	initialize();
-}
+	public BookDetailsWindow(MainWindow mw, List<Book> books) {
+		this.mw = mw;
+		this.books = books;
+		initialize();
+	}
 
     /**
      * Initialize the contents of the frame.
