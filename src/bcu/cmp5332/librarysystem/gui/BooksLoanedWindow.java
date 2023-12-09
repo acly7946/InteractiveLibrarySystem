@@ -15,14 +15,14 @@ import javax.swing.JTable;
 import javax.swing.UIManager;
 import java.util.List;
 
-public class BookDetailsWindow extends JFrame implements ActionListener {
+public class BooksLoanedWindow extends JFrame implements ActionListener {
 
     private MainWindow mw;
 	private List<Book> books;
 
     private JButton closeBtn = new JButton("Close");
 
-	public BookDetailsWindow(MainWindow mw, List<Book> books) {
+	public BooksLoanedWindow(MainWindow mw, List<Book> books) {
 		this.mw = mw;
 		this.books = books;
 		initialize();
