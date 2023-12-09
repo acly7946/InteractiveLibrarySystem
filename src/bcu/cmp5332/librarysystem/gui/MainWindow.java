@@ -188,18 +188,6 @@ public class MainWindow extends JFrame implements ActionListener {
         }
 
         table = new JTable(data, columns);
-		// Show details window on double click
-		table.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent mouseEvent) {
-				JTable table =(JTable) mouseEvent.getSource();
-				Point point = mouseEvent.getPoint();
-				int row = table.rowAtPoint(point);
-				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
-					new BookDetailsWindow(MainWindow.this, booksList.get(row));
-				}
-			}
-		});
-
         this.getContentPane().removeAll();
         this.getContentPane().add(new JScrollPane(table));
         this.revalidate();
@@ -209,6 +197,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		List<Patron> libraryData = library.getPatrons();
 		List<Patron> patronsList = new ArrayList<>(libraryData);
 		List<Patron> deletedPatrons = new ArrayList<>();
+		JTable table = new JTable();
 
 		for (Patron patron : patronsList) {
 			if (patron.getDeleted()) {
@@ -229,7 +218,19 @@ public class MainWindow extends JFrame implements ActionListener {
 			data[i][2] = patron.getEmail();
 		}
 
-		JTable table = new JTable(data, columns);
+		table = new JTable(data, columns);
+		// Show details window on double click
+		table.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table =(JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if ((mouseEvent.getClickCount() == 2)) {
+					new BookDetailsWindow(MainWindow.this, patronsList.get(row).getBooks());
+				}
+			}
+		});
+
 		this.getContentPane().removeAll();
 		this.getContentPane().add(new JScrollPane(table));
 		this.revalidate();
