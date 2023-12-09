@@ -38,17 +38,19 @@ public class AddBookWindow extends JFrame implements ActionListener {
      */
     private void initialize() {
 
+		JPanel topPanel = new JPanel();
+		JPanel bottomPanel = new JPanel();
+
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
 
         }
-
         setTitle("Add a New Book");
-
         setSize(300, 200);
-        JPanel topPanel = new JPanel();
         topPanel.setLayout(new GridLayout(5, 2));
+        bottomPanel.setLayout(new GridLayout(1, 3));
+
         topPanel.add(new JLabel("Title : "));
         topPanel.add(titleText);
         topPanel.add(new JLabel("Author : "));
@@ -57,22 +59,16 @@ public class AddBookWindow extends JFrame implements ActionListener {
         topPanel.add(pubText);
         topPanel.add(new JLabel("Publishing Date : "));
         topPanel.add(pubDateText);
-
-        JPanel bottomPanel = new JPanel();
-        bottomPanel.setLayout(new GridLayout(1, 3));
         bottomPanel.add(new JLabel("     "));
         bottomPanel.add(addBtn);
         bottomPanel.add(cancelBtn);
-
         addBtn.addActionListener(this);
         cancelBtn.addActionListener(this);
 
         this.getContentPane().add(topPanel, BorderLayout.CENTER);
         this.getContentPane().add(bottomPanel, BorderLayout.SOUTH);
         setLocationRelativeTo(mw);
-
         setVisible(true);
-
     }
 
     @Override
