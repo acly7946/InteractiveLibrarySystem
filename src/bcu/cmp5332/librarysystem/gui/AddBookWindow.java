@@ -22,6 +22,7 @@ public class AddBookWindow extends JFrame implements ActionListener {
     private MainWindow mw;
     private JTextField titleText = new JTextField();
     private JTextField authText = new JTextField();
+    private JTextField pubText = new JTextField();
     private JTextField pubDateText = new JTextField();
 
     private JButton addBtn = new JButton("Add");
@@ -52,6 +53,8 @@ public class AddBookWindow extends JFrame implements ActionListener {
         topPanel.add(titleText);
         topPanel.add(new JLabel("Author : "));
         topPanel.add(authText);
+        topPanel.add(new JLabel("Publisher: "));
+        topPanel.add(pubText);
         topPanel.add(new JLabel("Publishing Date : "));
         topPanel.add(pubDateText);
 
@@ -86,7 +89,7 @@ public class AddBookWindow extends JFrame implements ActionListener {
         try {
             String title = titleText.getText();
             String author = authText.getText();
-            String publisher = pubDateText.getText();
+            String publisher = pubText.getText();
             String publicationYear = pubDateText.getText();
             // create and execute the AddBook Command
             Command addBook = new AddBook(title, author, publisher, publicationYear);
