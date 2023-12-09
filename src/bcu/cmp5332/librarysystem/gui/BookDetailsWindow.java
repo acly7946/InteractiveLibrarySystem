@@ -11,20 +11,23 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.UIManager;
+import java.util.List;
 
 public class BookDetailsWindow extends JFrame implements ActionListener {
 
     private MainWindow mw;
-	private Book book;
+	private List<Book> books;
 
     private JButton closeBtn = new JButton("Close");
 
-    public BookDetailsWindow(MainWindow mw, Book book) {
-        this.mw = mw;
-		this.book = book;
-        initialize();
-    }
+public BookDetailsWindow(MainWindow mw, List<Book> books) {
+	this.mw = mw;
+	this.books = books;
+	initialize();
+}
 
     /**
      * Initialize the contents of the frame.
@@ -37,15 +40,29 @@ public class BookDetailsWindow extends JFrame implements ActionListener {
 
         }
 
-        setTitle("Book details");
+        setTitle("Books on loan");
 
         setSize(400, 300);
         JPanel topPanel = new JPanel();
-        topPanel.setLayout(new GridLayout(5, 2));
-		topPanel.add(new JLabel("Title : " + book.getTitle()));
-		topPanel.add(new JLabel("Author : " + book.getAuthor()));
-		topPanel.add(new JLabel("Publisher : " + book.getPublisher()));
-		topPanel.add(new JLabel("Publication Year : " + book.getPublicationYear()));
+		JTable table = new JTable();
+
+		topPanel.setLayout(new BorderLayout());
+
+        // headers for the table
+        String[] columns = new String[]{"Title", "Author", "Publisher", "Pub. Year", "Status"};
+
+        Object[][] data = new Object[books.size()][6];
+        for (int i = 0; i < books.size(); i++) {
+            Book book = books.get(i);
+
+            data[i][0] = book.getTitle();
+            data[i][1] = book.getAuthor();
+            data[i][2] = book.getPublisher();
+            data[i][3] = book.getPublicationYear();
+            data[i][4] = book.getStatus();
+        }
+        table = new JTable(data, columns);
+		topPanel.add(new JScrollPane(table), BorderLayout.CENTER);
 
         JPanel bottomPanel = new JPanel();
         bottomPanel.setLayout(new GridLayout(0, 1));
