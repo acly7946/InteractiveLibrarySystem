@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
@@ -130,34 +131,38 @@ public class MainWindow extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
 
-        if (ae.getSource() == adminExit) {
-            System.exit(0);
-        } else if (ae.getSource() == booksView) {
-            displayBooks();
+		try {
+			if (ae.getSource() == adminExit) {
+				System.exit(0);
+			} else if (ae.getSource() == booksView) {
+				displayBooks();
 
-        } else if (ae.getSource() == booksAdd) {
-            new AddBookWindow(this);
+			} else if (ae.getSource() == booksAdd) {
+				new AddBookWindow(this);
 
-        } else if (ae.getSource() == booksDel) {
-
-
-        } else if (ae.getSource() == booksIssue) {
+			} else if (ae.getSource() == booksDel) {
 
 
-        } else if (ae.getSource() == booksReturn) {
+			} else if (ae.getSource() == booksIssue) {
 
 
-        } else if (ae.getSource() == memView) {
-			displayPatrons();
+			} else if (ae.getSource() == booksReturn) {
 
 
-        } else if (ae.getSource() == memAdd) {
-			new AddPatronWindow(this);
-
-        } else if (ae.getSource() == memDel) {
+			} else if (ae.getSource() == memView) {
+				displayPatrons();
 
 
-        }
+			} else if (ae.getSource() == memAdd) {
+				new AddPatronWindow(this);
+
+			} else if (ae.getSource() == memDel) {
+
+
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e, "Error", JOptionPane.ERROR_MESSAGE);
+		}
     }
 
     public void displayBooks() {
@@ -188,6 +193,18 @@ public class MainWindow extends JFrame implements ActionListener {
         }
 
         table = new JTable(data, columns);
+		table.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table =(JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if ((mouseEvent.getClickCount() == 2)) {
+					if (booksList.get(row).isOnLoan()) {
+						new PatronDetailsWindow(MainWindow.this, booksList.get(row).getLoan().getPatron());
+					}
+				}
+			}
+		});
         this.getContentPane().removeAll();
         this.getContentPane().add(new JScrollPane(table));
         this.revalidate();
