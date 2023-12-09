@@ -86,6 +86,9 @@ public class AddPatronWindow extends JFrame implements ActionListener {
             String name = nameText.getText();
             String phone = phoneText.getText();
             String email = emailText.getText();
+			if (name.isEmpty() || phone.isEmpty() || email.isEmpty()) {
+				throw new LibraryException("Please fill in all fields.");
+			}
             // create and execute the AddPatron Command
             Command addPatron = new AddPatron(name, phone, email);
             addPatron.execute(mw.getLibrary(), LocalDate.now());
