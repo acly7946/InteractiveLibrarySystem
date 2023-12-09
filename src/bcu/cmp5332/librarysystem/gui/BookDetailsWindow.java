@@ -34,24 +34,26 @@ public BookDetailsWindow(MainWindow mw, List<Book> books) {
      */
     private void initialize() {
 
+        JPanel topPanel = new JPanel();
+		JPanel bottomPanel = new JPanel();
+		JTable table = new JTable();
+		String[] columns;
+		Object[][] data;
+
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
 
         }
-
         setTitle("Books on loan");
-
         setSize(400, 300);
-        JPanel topPanel = new JPanel();
-		JTable table = new JTable();
-
 		topPanel.setLayout(new BorderLayout());
+        bottomPanel.setLayout(new GridLayout(0, 1));
 
         // headers for the table
-        String[] columns = new String[]{"Title", "Author", "Publisher", "Pub. Year", "Status"};
+        columns = new String[]{"Title", "Author", "Publisher", "Pub. Year", "Status"};
+        data = new Object[books.size()][6];
 
-        Object[][] data = new Object[books.size()][6];
         for (int i = 0; i < books.size(); i++) {
             Book book = books.get(i);
 
@@ -61,21 +63,16 @@ public BookDetailsWindow(MainWindow mw, List<Book> books) {
             data[i][3] = book.getPublicationYear();
             data[i][4] = book.getStatus();
         }
+
         table = new JTable(data, columns);
 		topPanel.add(new JScrollPane(table), BorderLayout.CENTER);
-
-        JPanel bottomPanel = new JPanel();
-        bottomPanel.setLayout(new GridLayout(0, 1));
         bottomPanel.add(closeBtn);
-
         closeBtn.addActionListener(this);
 
         this.getContentPane().add(topPanel, BorderLayout.CENTER);
         this.getContentPane().add(bottomPanel, BorderLayout.SOUTH);
         setLocationRelativeTo(mw);
-
         setVisible(true);
-
     }
 
     @Override
