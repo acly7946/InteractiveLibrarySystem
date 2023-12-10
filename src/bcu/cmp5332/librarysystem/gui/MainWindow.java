@@ -193,6 +193,8 @@ public class MainWindow extends JFrame implements ActionListener {
 				if ((mouseEvent.getClickCount() == 2)) {
 					if (booksList.get(row).isOnLoan()) {
 						new PatronDetailsWindow(MainWindow.this, booksList.get(row).getLoan().getPatron());
+					} else {
+						JOptionPane.showMessageDialog(MainWindow.this, "Book is not on loan", "Information", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 			}
