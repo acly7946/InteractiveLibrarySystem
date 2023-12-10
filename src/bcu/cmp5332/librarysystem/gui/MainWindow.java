@@ -184,6 +184,7 @@ public class MainWindow extends JFrame implements ActionListener {
         }
 
         table = new JTable(data, columns);
+		table.setDefaultEditor(Object.class, null);
 		table.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table =(JTable) mouseEvent.getSource();
@@ -227,7 +228,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		}
 
 		table = new JTable(data, columns);
-		// Show details window on double click
+		table.setDefaultEditor(Object.class, null);
 		table.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table =(JTable) mouseEvent.getSource();
