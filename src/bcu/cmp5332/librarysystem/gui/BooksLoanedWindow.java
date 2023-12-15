@@ -13,18 +13,21 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class BooksLoanedWindow extends JFrame implements ActionListener {
 
     private MainWindow mw;
-	private List<Book> books;
-
+	private List<Book> patronBooks;
+	private List<Book> booksList;
+	private List<Book> deletedBooks;
     private JButton closeBtn = new JButton("Close");
 
 	public BooksLoanedWindow(MainWindow mw, List<Book> books) {
 		this.mw = mw;
-		this.books = books;
+		this.patronBooks = books;
 		initialize();
 	}
 
@@ -49,11 +52,20 @@ public class BooksLoanedWindow extends JFrame implements ActionListener {
 		topPanel.setLayout(new BorderLayout());
         bottomPanel.setLayout(new GridLayout(0, 1));
 
+		booksList = new ArrayList<>(patronBooks);
+		deletedBooks = new ArrayList<>();
+		for (Book book : booksList) {
+			if (book.getDeleted()) {
+				deletedBooks.add(book);
+			}
+		}
+		booksList.removeAll(deletedBooks);
+
         // headers for the table
         columns = new String[]{"Title", "Author", "Publisher", "Pub. Year", "Status"};
-        data = new Object[books.size()][6];
-        for (int i = 0; i < books.size(); i++) {
-            Book book = books.get(i);
+        data = new Object[booksList.size()][6];
+        for (int i = 0; i < booksList.size(); i++) {
+            Book book = booksList.get(i);
             data[i][0] = book.getTitle();
             data[i][1] = book.getAuthor();
             data[i][2] = book.getPublisher();
