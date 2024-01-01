@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * given by the user.
  *
  * <p>
- * The interface provides the {@link execute(Library, LocalDate)} function which must be
+ * The interface provides the {@link execute execute(Library, LocalDate)} function which must be
  * implemented by all the objects that implement the Command interface.
  * </p>
  *
@@ -22,7 +22,7 @@ import java.time.LocalDate;
  * and {@link ListBooks} as an example of one that doesn't.
  * </p>
  *
- * @see execute(Library, LocalDate)
+ * @see execute execute(Library, LocalDate)
  * @see AddBook
  * @see ListBooks
  */
