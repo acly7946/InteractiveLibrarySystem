@@ -74,8 +74,7 @@ public interface Command {
 	 * @param library     the library object to perform actions based on the command
 	 *                    given
 	 * @param currentDate an object holding the current date
-	 * @throws LibraryException if something goes wrong with the execution of the
-	 *                          command
+	 * @throws LibraryException if there is an error during the execution
 	 *
 	 * @see Library
 	 * @see LocalDate
