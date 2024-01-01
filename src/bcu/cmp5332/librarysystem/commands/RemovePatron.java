@@ -9,7 +9,7 @@ import java.time.LocalDate;
  * Removes a patron from the library.
  *
  * <p>
- * * It is an implementation of the {@link Command} interface and its
+ * It is an implementation of the {@link Command} interface and its
  * {@link execute execute(Library, LocalDate)} method removes a {@link Patron}
  * from the library.
  * </p>
