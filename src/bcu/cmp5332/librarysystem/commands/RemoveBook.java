@@ -51,7 +51,7 @@ public class RemoveBook implements Command {
 	}
 
 	/**
-	 * Remove a patron from the library
+	 * Remove a book from the library
 	 *
 	 * @param library     the library from which the book is to be removed
 	 * @param currentDate the current date
