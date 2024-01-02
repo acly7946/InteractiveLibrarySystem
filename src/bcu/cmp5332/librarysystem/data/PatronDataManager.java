@@ -13,7 +13,7 @@ import java.util.Scanner;
 /**
  * PatronDataManager class is used to {@link loadData load}
  * and {@link storeData store}
- * Patron data using the text file storage.
+ * {@link Patron} data using the text file storage.
  *
  * <p>
  * It is an implementation of the {@link DataManager} interface. It has a
