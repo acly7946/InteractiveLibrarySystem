@@ -30,4 +30,4 @@ CMP5332 Coursework implementing a library system in Java
 | Keep record of all loan history for Patrons. To implement this functionality you need to introduce a Boolean property in the Loan class to indicate whether the loan is terminated and a property that will hold the date that the book was returned. You have the flexibility to decide on how to complete the implementation of this functionality. | [ ] |
 | Implement the Borrow functionality to borrow a book using the GUI. | [X] |
 | Implement the Renew functionality to allow for renewing a book loan using the GUI. | [ ] |
-| Implement the Return functionality to return a book using the GUI. | [ ] |
+| Implement the Return functionality to return a book using the GUI. | [X] |
