@@ -149,7 +149,7 @@ public class MainWindow extends JFrame implements ActionListener {
 			} else if (ae.getSource() == memAdd) {
 				new AddPatronWindow(this);
 			} else if (ae.getSource() == memDel) {
-
+				new RemovePatronWindow(this);
 			}
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, e, "Error", JOptionPane.ERROR_MESSAGE);
