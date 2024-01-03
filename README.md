@@ -1,6 +1,6 @@
 # Interactive Library System
 CMP5332 Coursework implementing a library system in Java
-
+![Screenshot from 2024-01-03 21-32-32](https://github.com/acly7946/InteractiveLibrarySystem/assets/66972514/32112efd-a62c-4e3f-bdb0-343aa1124edf)
 
 ## Checklist
 | **Achieving a mark of 40% to maximum of 49%**  |  |
