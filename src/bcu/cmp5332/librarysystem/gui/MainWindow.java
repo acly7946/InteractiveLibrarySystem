@@ -91,6 +91,7 @@ public class MainWindow extends JFrame implements ActionListener {
         booksMenu.add(booksDel);
         booksMenu.add(booksIssue);
         booksMenu.add(booksReturn);
+        booksMenu.add(booksRenew);
         for (int i = 0; i < booksMenu.getItemCount(); i++) {
             booksMenu.getItem(i).addActionListener(this);
         }
@@ -147,7 +148,7 @@ public class MainWindow extends JFrame implements ActionListener {
 			} else if (ae.getSource() == booksReturn) {
 				new ReturnBookWindow(this);
 			} else if (ae.getSource() == booksRenew) {
-
+				new RenewBookWindow(this);
 			} else if (ae.getSource() == memView) {
 				displayPatrons();
 			} else if (ae.getSource() == memAdd) {
