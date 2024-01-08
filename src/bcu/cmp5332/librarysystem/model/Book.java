@@ -103,6 +103,14 @@ public class Book {
 		this.getLoan().setDueDate(dueDate);
     }
 
+	public LocalDate getReturnDate() {
+		return this.loan.getReturnDate();
+	}
+
+	public void setReturnDate(LocalDate returnDate) throws LibraryException {
+		this.getLoan().setReturnDate(returnDate);
+	}
+
     public Loan getLoan() {
         return this.loan;
     }

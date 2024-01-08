@@ -14,6 +14,7 @@ public class Patron {
     private String phone;
     private String email;
     private final List<Book> books = new ArrayList<>();
+	private final List<Loan> loanHistory = new ArrayList<>();
 
 	public Patron(int id, boolean deleted, String name, String phone, String email) {
 		this.id = id;
@@ -67,6 +68,10 @@ public class Patron {
 		return Collections.unmodifiableList(books);
 	}
 
+	public List<Loan> getLoanHistory() {
+		return Collections.unmodifiableList(loanHistory);
+	}
+
     public void borrowBook(Book book, LocalDate dueDate) throws LibraryException {
 		if (book.isOnLoan()) {
 			throw new LibraryException("Book is currently on loan");
@@ -110,6 +115,8 @@ public class Patron {
 			throw new LibraryException("Book is not on loan to this patron");
 		}
 		this.books.remove(book);
+		book.setReturnDate(LocalDate.now());
+		this.loanHistory.add(book.getLoan());
 		book.returnToLibrary();
     }
 
