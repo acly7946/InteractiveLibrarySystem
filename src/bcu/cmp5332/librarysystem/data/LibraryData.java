@@ -16,6 +16,7 @@ public class LibraryData {
         dataManagers.add(new BookDataManager());
         dataManagers.add(new PatronDataManager());
         dataManagers.add(new LoanDataManager());
+		dataManagers.add(new HistoryDataManager());
     }
 
     public static Library load() throws LibraryException, IOException {
