@@ -10,12 +10,12 @@ public class Loan {
     private LocalDate dueDate;
 	private LocalDate returnDate;
 
-    public Loan(Patron patron, Book book, LocalDate startDate, LocalDate dueDate) {
+    public Loan(Patron patron, Book book, LocalDate startDate, LocalDate dueDate, LocalDate returnDate) {
 		this.patron = patron;
 		this.book = book;
 		this.startDate = startDate;
 		this.dueDate = dueDate;
-		this.returnDate = null;
+		this.returnDate = returnDate;
     }
 
 	public Patron getPatron() {
