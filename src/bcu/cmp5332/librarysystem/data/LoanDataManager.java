@@ -29,9 +29,10 @@ public class LoanDataManager implements DataManager {
 					int patronId = Integer.parseInt(properties[1]);
 					LocalDate startDate = LocalDate.parse(properties[2]);
 					LocalDate dueDate = LocalDate.parse(properties[3]);
+					LocalDate returnDate = LocalDate.parse(properties[4]);
 					Patron patron = library.getPatronByID(patronId);
 					Book book = library.getBookByID(bookId);
-					Loan loan = new Loan(patron, book, startDate, dueDate);
+					Loan loan = new Loan(patron, book, startDate, dueDate, returnDate);
 					book.setLoan(loan);
 					patron.addBook(book);
 				} catch (NumberFormatException ex) {
@@ -53,6 +54,7 @@ public class LoanDataManager implements DataManager {
 					out.print(loan.getPatron().getId() + SEPARATOR);
 					out.print(loan.getStartDate().toString() + SEPARATOR);
 					out.print(loan.getDueDate().toString() + SEPARATOR);
+					out.print(loan.getReturnDate().toString() + SEPARATOR);
 					out.println();
 				}
             }
