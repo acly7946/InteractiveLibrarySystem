@@ -76,7 +76,7 @@ public class Patron {
 		if (book.isOnLoan()) {
 			throw new LibraryException("Book is currently on loan");
 		}
-		Loan loan = new Loan(this, book, LocalDate.now(), dueDate);
+		Loan loan = new Loan(this, book, LocalDate.now(), dueDate, null);
 		book.setLoan(loan);
 		this.addBook(book);
     }
@@ -123,4 +123,8 @@ public class Patron {
     public void addBook(Book book) {
 		this.books.add(book);
     }
+
+	public void addLoanHistory(Loan loan) {
+		this.loanHistory.add(loan);
+	}
 }
