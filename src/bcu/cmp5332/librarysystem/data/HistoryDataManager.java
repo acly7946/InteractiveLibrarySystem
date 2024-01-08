@@ -44,13 +44,13 @@ public class HistoryDataManager implements DataManager {
         try (PrintWriter out = new PrintWriter(new FileWriter(RESOURCE))) {
             for (Patron patron : library.getPatrons()) {
 				for (Loan loan : patron.getLoanHistory()) {
-					out.println(loan.getPatron().getId() + SEPARATOR);
-					out.println(loan.getBook().getId() + SEPARATOR);
-					out.println(loan.getStartDate() + SEPARATOR);
-					out.println(loan.getDueDate() + SEPARATOR);
-					out.println(loan.getReturnDate() + SEPARATOR);
+					out.print(loan.getPatron().getId() + SEPARATOR);
+					out.print(loan.getBook().getId() + SEPARATOR);
+					out.print(loan.getStartDate() + SEPARATOR);
+					out.print(loan.getDueDate() + SEPARATOR);
+					out.print(loan.getReturnDate() + SEPARATOR);
+					out.println();
 				}
-				out.println();
             }
         }
     }
