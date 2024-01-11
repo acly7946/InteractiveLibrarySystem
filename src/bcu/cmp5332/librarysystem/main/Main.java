@@ -12,6 +12,7 @@ public class Main {
     public static void main(String[] args) throws IOException, LibraryException {
 
         Library library = LibraryData.load();
+		Library libraryBackup = LibraryData.load();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -25,13 +26,15 @@ public class Main {
             }
 
             try {
+				libraryBackup = library;
                 Command command = CommandParser.parse(line);
                 command.execute(library, LocalDate.now());
-            } catch (LibraryException ex) {
-                System.out.println(ex.getMessage());
-            }
+				LibraryData.store(library);
+            } catch (Exception ex) {
+				System.out.println("An error occurred: " + ex.getMessage());
+				library = libraryBackup;
+			}
         }
-        LibraryData.store(library);
         System.exit(0);
     }
 }
