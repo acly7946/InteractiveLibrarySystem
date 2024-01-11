@@ -55,13 +55,13 @@ public class Main {
 			}
 
             try {
-				libraryBackup = library;
+				libraryBackup = library;  // update backup
                 Command command = CommandParser.parse(line);
                 command.execute(library, LocalDate.now());
 				LibraryData.store(library);
             } catch (Exception ex) {
 				System.out.println("An error occurred: " + ex.getMessage());
-				library = libraryBackup;
+				library = libraryBackup; // restore from backup
 			}
         }
         System.exit(0);
