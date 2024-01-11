@@ -19,13 +19,13 @@ CMP5332 Coursework implementing a library system in Java
 | List all Patrons and their details including the number of books they have on loan. | [X] |
 | Display a popup window that will show the Books details if a Patron has Books on loan. | [X] |
 | Display a popup window when the “Add” submenu of the “Patrons” menu item is selected. The popup should display a form that allows the addition of a new Patron to the system. | [X] |
-| Extend the functionality of the library system to allow for storing data to the file storage after the execution of commands that change the state of the system (e.g. “addbook”, “renewbook”). If the system fails to store the data on the file storage due to an error (e.g. file is already in used or corrupted), the program must inform the user and rollback any changes made to the system prior to the error. You can change the file permission to “read-only” in order to test this functionality. | [ ] |
+| Extend the functionality of the library system to allow for storing data to the file storage after the execution of commands that change the state of the system (e.g. “addbook”, “renewbook”). If the system fails to store the data on the file storage due to an error (e.g. file is already in used or corrupted), the program must inform the user and rollback any changes made to the system prior to the error. You can change the file permission to “read-only” in order to test this functionality. | [X] |
 | **Achieving a mark of 70% to maximum of 79%**  | |
 | Remove (hide) existing books from the system. When a book is removed, it should not appear in the books view. Instead of completely deleting a book, use a Boolean property in the Book class to indicate whether the book is deleted. Change the affected functions appropriately to return only the books that are not deleted. | [X] |
 | Remove (hide) existing Patrons from the system. When a patron is removed, it should not appear in the patrons view. Instead of completely deleting a patron, use a Boolean property in the Patron class to indicate that the patron is deleted. Change the affected functions appropriately to return only the books that are not deleted. | [X] |
 | Impose a limit on the maximum number of books that a patron can borrow and use that during issuing books for a patron. | [X] |
 | Extend the implementation for the GUI application to add the Delete functionality for both Books and Patrons using the GUI. | [X] |
-| Add Javadoc documentation for the newly created methods. | [ ] |
+| Add Javadoc documentation for the newly created methods. | [X] |
 | **Achieving a mark of 80% and over**| |
 | Keep record of all loan history for Patrons. To implement this functionality you need to introduce a Boolean property in the Loan class to indicate whether the loan is terminated and a property that will hold the date that the book was returned. You have the flexibility to decide on how to complete the implementation of this functionality. | [X] |
 | Implement the Borrow functionality to borrow a book using the GUI. | [X] |
