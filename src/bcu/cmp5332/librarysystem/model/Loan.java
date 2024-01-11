@@ -112,10 +112,20 @@ public class Loan {
 		this.dueDate = dueDate;
 	}
 
+	/**
+	 * Get the loan's return date.
+	 *
+	 * @return the loan's return date as LocalDate
+	 */
 	public LocalDate getReturnDate() {
 		return this.returnDate;
 	}
 
+	/**
+	 * Set the loan's return date.
+	 *
+	 * @param returnDate the LocalDate value that will be set as the loan's return date
+	 */
 	public void setReturnDate(LocalDate returnDate) {
 		this.returnDate = returnDate;
 	}
