@@ -148,6 +148,11 @@ public class Patron {
 		return Collections.unmodifiableList(books);
 	}
 
+	/**
+	 * Get a list of previous loans
+	 *
+	 * @return an unmodifiable list of loans for the patron
+	 */
 	public List<Loan> getLoanHistory() {
 		return Collections.unmodifiableList(loanHistory);
 	}
