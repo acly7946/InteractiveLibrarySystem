@@ -260,6 +260,15 @@ public class Patron {
 		this.books.add(book);
     }
 
+	/**
+	 * Add a loan to the patron's loan history
+	 *
+	 * <p>
+	 * This method is used to add loans to a patron's loan history
+	 * </p>
+	 *
+	 * @param loan the loan to be added to the patron's loan history
+	 */
 	public void addLoanHistory(Loan loan) {
 		this.loanHistory.add(loan);
 	}
