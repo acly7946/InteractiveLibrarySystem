@@ -1,6 +1,5 @@
 package bcu.cmp5332.librarysystem.gui;
 
-import bcu.cmp5332.librarysystem.model.Book;
 import bcu.cmp5332.librarysystem.model.Loan;
 
 import java.awt.BorderLayout;
