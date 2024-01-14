@@ -245,6 +245,7 @@ public class MainWindow extends JFrame implements ActionListener {
 				int row = table.rowAtPoint(point);
 				if ((mouseEvent.getClickCount() == 2)) {
 					new BooksLoanedWindow(MainWindow.this, patronsList.get(row).getBooks());
+					new LoanHistoryWindow(MainWindow.this, patronsList.get(row).getLoanHistory());
 				}
 			}
 		});
